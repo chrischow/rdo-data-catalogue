@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+data-profiler/dev/node_modules/
+data-profiler/dev/.pnp
+data-profiler/dev/.pnp.js
+
+# testing
+data-profiler/dev/coverage/
+
+# production
+data-profiler/dev/build/
+
+# misc
+data-profiler/dev.DS_Store
+data-profiler/dev.env.local
+data-profiler/dev.env.development.local
+data-profiler/dev.env.test.local
+data-profiler/dev.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
