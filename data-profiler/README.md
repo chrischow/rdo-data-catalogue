@@ -8,8 +8,12 @@ Provides an overview of data quality for data across the whole organisation
 - Distribute of each dimension:
   - Completeness
   - Consistency
+  - Validity
   - Uniqueness
 
-### QuickAssess
+### Assessment Tool
+Provides a quick assessment of data quality for a CSV file
+- Serves as 
 
-- Users can get a quick assessment of their data quality
+To-do:
+- Add support for providing a SharePoint list

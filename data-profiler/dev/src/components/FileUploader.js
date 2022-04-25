@@ -25,7 +25,7 @@ export default function FileUploader(props) {
     <div className="file-uploader mt-2">
       <h4>Step 1: Upload a File</h4>
       <input className="mt-3" type="file" id="csv-uploader" accept=".csv"></input>
-      <button className="btn btn-primary" onClick={submitFile}>Upload</button>
+      <button className="btn btn-green" onClick={submitFile}>Upload</button>
     </div>
   );
 }

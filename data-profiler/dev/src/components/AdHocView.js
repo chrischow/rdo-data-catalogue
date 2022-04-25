@@ -3,8 +3,17 @@ import FileUploader from "./FileUploader";
 import { useEffect, useState } from "react";
 import MetadataForm from "./MetadataForm";
 import Modal from "./Modal";
+import DatasetPanel from "./DatasetPanel";
 import FeatureTable from "./FeatureTable";
-import { checkCompleteness, checkInt, checkFloat } from "../utils/utils.js";
+import CustomRulesSection from "./CustomRulesSection";
+import {
+  checkCompleteness,
+  checkInt,
+  checkFloat,
+  checkDate,
+  checkBool,
+  checkString
+} from "../utils/utils.js";
 
 export default function AdHocView(props) {
   // State:
@@ -15,6 +24,7 @@ export default function AdHocView(props) {
   const [featureColumns, setFeatureColumns] = useState({});
   const [scoresDataset, setScoresDataset] = useState({});
   const [scoresFeatures, setScoresFeatures] = useState({});
+  const [rules, setRules] = useState([]);
 
   // Create feature columns upon update of CSV file and metadata
   useEffect(() => {
@@ -44,11 +54,19 @@ export default function AdHocView(props) {
     // Compute data quality for individual features
     if (Object.keys(featureColumns).length > 0) {
       const columns = Object.keys(featureColumns);
-      
+
+      // Variables for loop
       var feature;
       var featureData;
       var newData = {};
       var fn;
+
+      var completeness, consistency, uniqueness;
+
+      var overallCompleteness = 0;
+      var overallConsistency = 0;
+      var overallUniqueness = 0;
+      var overallNonNull = 0;
 
       for (var column of columns) {
         feature = featureColumns[column];
@@ -58,21 +76,37 @@ export default function AdHocView(props) {
 
         if (feature.metadata.dataType === "float") {
           fn = checkFloat;
-        } else {
+        } else if (feature.metadata.dataType === "date") {
+          fn = checkDate;
+        } else if (feature.metadata.dataType === 'integer') {
           fn = checkInt;
+        } else if (feature.metadata.dataType === 'boolean') {
+          fn = checkBool;
+        } else {
+          fn = checkString;
         }
 
+        // Compute metrics
+        completeness = feature.data.reduce(
+          (a, b) => a + checkCompleteness(b),
+          0
+        );
+        consistency = featureData.reduce((a, b) => a + fn(b), 0);
+        uniqueness = new Set(featureData).size;
+
+        // Append metrics
+        overallCompleteness += completeness;
+        overallConsistency += consistency;
+        overallUniqueness += uniqueness;
+        overallNonNull += featureData.length;
+
+        // Prepare column data quality scores
         newData = {
           ...newData,
           [column]: {
-            completeness:
-              feature.data.reduce((a, b) => {
-                return a + checkCompleteness(b);
-              }, 0) / feature.data.length,
-            consistency:
-              featureData.reduce((a, b) => {
-                return a + fn(b);
-              }, 0) / featureData.length,
+            completeness: completeness / feature.data.length,
+            consistency: consistency / featureData.length,
+            uniqueness: uniqueness / featureData.length,
           },
         };
       }
@@ -83,10 +117,23 @@ export default function AdHocView(props) {
           ...newData,
         };
       });
+
+      // Compute data quality for dataset
+      const nColumns = data.columns.length;
+      const nRows = data.data.length;
+      const totalCells = data.columns.length * data.data.length;
+      const totalValidCells = overallNonNull;
+
+      setScoresDataset({
+        nColumns,
+        nRows,
+        totalCells,
+        totalValidCells,
+        overallCompleteness,
+        overallConsistency,
+        overallUniqueness,
+      });
     }
-
-    // Compute data quality for dataset
-
   }, [featureColumns]);
 
   // Function to render file uploader and metadata form
@@ -110,11 +157,11 @@ export default function AdHocView(props) {
       <div className="section-upload">
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-green"
           data-toggle="modal"
           data-target="#adHocModal"
-          >
-          Upload Data
+        >
+          {`${data.columns ? "Edit" : "Upload"} Data`}
         </button>
         <Modal
           modalId="adHocModal"
@@ -122,12 +169,27 @@ export default function AdHocView(props) {
           renderModalContent={() => {
             return renderUploader("adHocModal");
           }}
-          />
+        />
+      </div>
+      <div className="section-overview mt-4">
+        {Object.keys(scoresFeatures).length > 0 && (
+          <DatasetPanel scoresDataset={scoresDataset} />
+        )}
       </div>
       <div className="section-table mt-4">
         {Object.keys(scoresFeatures).length > 0 && (
           <FeatureTable scoresFeatures={scoresFeatures} metadata={metadata} />
-          )}
+        )}
+      </div>
+      <div className="mt-4">
+        {Object.keys(scoresFeatures).length > 0 && (
+          <CustomRulesSection
+            featureColumns={featureColumns}
+            metadata={metadata}
+            rules={rules}
+            setRules={setRules}
+          />
+        )}
       </div>
     </div>
   );

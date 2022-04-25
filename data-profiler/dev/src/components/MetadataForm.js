@@ -15,27 +15,6 @@ export default function MetadataForm(props) {
     })
   );
 
-  // Function to add column of metadata
-  // const addColumn = () => {
-  //   setFormData((prevData) => {
-  //     return [
-  //       ...prevData,
-  //       {
-  //         name: "",
-  //         dataType: "",
-  //         description: "",
-  //       },
-  //     ];
-  //   });
-  // };
-
-  // Function to delete column of metadata
-  // const deleteColumn = () => {
-  //   setFormData(prevData => {
-  //     return prevData.slice(0, -1);
-  //   });
-  // };
-
   // Function to submit data
   const submitData = () => {
     props.setMetadata(formData);
@@ -125,7 +104,7 @@ export default function MetadataForm(props) {
       {/* <button className="btn btn-danger mr-3" onClick={deleteColumn}>
         Delete Column
       </button> */}
-      <button className="btn btn-success" onClick={submitData}>
+      <button className="btn btn-green" onClick={submitData}>
         Analyse Dataset
       </button>
     </div>

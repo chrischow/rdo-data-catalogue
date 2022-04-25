@@ -1,9 +1,164 @@
+/* CSS */
+/* Generic Variables */
+:root {
+  /* Dark Grey */
+  --dark-grey-d5: #0d1014;
+  --dark-grey-d4: #141920;
+  --dark-grey-d3: #1c232c;
+  --dark-grey-d2: #242c38;
+  --dark-grey-d1: #2b3644;
+  --dark-grey:    #333f50!important;
+  --dark-grey-l1: #3b485c;
+  --dark-grey-l2: #425268;
+  --dark-grey-l3: #4a5b74;
+  --dark-grey-l4: #526580;
+  --dark-grey-l5: #526e8c;
+  
+  /* Light grey */
+  --light-grey-d5:  #778ca9;
+  --light-grey-d4:  #8396b0;
+  --light-grey-d3:  #8fa0b8;
+  --light-grey-d2:  #9baabf;
+  --light-grey-d1:  #a7b4c7;
+  --light-grey:     #b3bfcf!important;
+  --light-grey-l1:  #bfc9d6;
+  --light-grey-l2:  #cbd3de;
+  --light-grey-l3:  #d7dde6;
+  --light-grey-l4:  #e3e7ed;
+  --light-grey-l5:  #eff2f5;
+
+  /* Green */
+  --green-d5:   #168c80;
+  --green-d4:   #199d90;
+  --green-d3:   #1bae9f;
+  --green-d2:   #1ebfaf;
+  --green-d1:   #21d0be;
+  --green:      #27DDCB!important;
+  --green-l1:   #38e0cf;
+  --green-l2:   #49e2d3;
+  --green-l3:   #5ae5d7;
+  --green-l4:   #6be8db;
+  --green-l5:   #7ceadf;
+
+  /* Purple */
+  --purple-d6:  #271ae7;
+  --purple-d5:  #271ae7;
+  --purple-d4:  #382ce8;
+  --purple-d3:  #493eea;
+  --purple-d2:  #5a50ec;
+  --purple-d1:  #6a61ee;
+  --purple:     #7B73F0!important;
+  --purple-l1:  #8c85f2;
+  --purple-l1:  #9c96f4;
+  --purple-l1:  #ada8f6;
+  --purple-l1:  #bebaf8;
+  --purple-l1:  #cfccf9;
+  --purple-l1:  #dfddfb;
+
+  /* Red */
+  --red-d5: #f00018;
+  --red-d4: #ff051d;
+  --red-d3: #ff182f;
+  --red-d2: #ff2c41;
+  --red-d1: #ff3f52;
+  --red:    #FF5364!important;
+  --red-l1: #ff6776;
+  --red-l2: #ff7a87;
+  --red-l3: #ff8e99;
+  --red-l4: #ffa1ab;
+  --red-l5: #ffb5bc;
+}
+
+.btn-green {
+  background-color: var(--green-d1)!important;
+  color: white!important;
+  border: none!important;
+  transition: 0.3s;
+}
+
+.btn-green:hover {
+  background-color: var(--green-d2)!important;
+  color: var(--light-grey-l5)!important;
+  border: none!important;
+  transition: 0.3s;
+}
+
+.btn-purple {
+  background-color: var(--purple)!important;
+  color: white!important;
+  border: none!important;
+  transition: 0.3s;
+}
+
+.btn-purple:hover {
+  background-color: var(--purple-d1)!important;
+  color: var(--light-grey-l5)!important;
+  border: none!important;
+  transition: 0.3s;
+}
+
+.btn-red {
+  background-color: var(--red)!important;
+  color: white!important;
+  border: none!important;
+  transition: 0.3s;
+}
+
+.btn-red:hover {
+  background-color: var(--red-d1)!important;
+  color: var(--light-grey-l5)!important;
+  border: none!important;
+  transition: 0.3s;
+}
+
+.btn {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.btn:hover {
+  box-shadow: rgba(149, 157, 165, 0.3) 0px 8px 24px;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
 }
 
 h1, h2, h3 {
   font-family: 'Segoe UI Light', sans-serif;
+}
+
+.monospace {
+  font-family: Consolas, monospace;
+}
+
+/* Cards */
+.metric-card--inner {
+  color: var(--dark-grey);
+  border-radius:  20px;
+  padding: 15px 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: 0.3s;
+}
+
+.metric-card--inner:hover {
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  transition: 0.3s;
+}
+
+
+
+.metric-card--title {
+  color: var(--light-grey-d5);
+}
+
+/* Tables */
+table {
+  font-family: 'Consolas', monospace;
+  font-size: 0.9rem;
+}
+
+thead th {
+  font-weight: normal;
 }
 
 /* Center checkbox */
@@ -14,4 +169,9 @@ h1, h2, h3 {
 .form-check-inline {
   margin-right: 0!important;
   vertical-align: middle!important;
+}
+
+/* Rules form */
+form.rules-form .form-control {
+  font-size: 0.9rem!important;
 }
