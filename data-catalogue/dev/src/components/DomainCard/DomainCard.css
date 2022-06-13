@@ -1,0 +1,28 @@
+.domain-card {
+  border-radius: 10px;
+  background-color: var(--dark-grey);
+  padding: 20px;
+  transition: 0.4s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.domain-card:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 7px 29px;
+}
+
+.domain-card--title {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 0.3rem;
+}
+
+.domain-card--subtitle {
+  font-size: 0.9rem;
+  font-family: 'Segoe UI Light';
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #27DDCB;
+}
