@@ -1,12 +1,21 @@
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import DomainCard from '../DomainCard/DomainCard';
 import SearchBar from '../SearchBar/SearchBar';
+import { getDatasets } from '../../utils/queryData';
+import { config } from '../../config';
 import './Home.css';
 
 export default function Home(props) {
-  // Query data
+  // Set state
+  const [datasets, setDatasets] = useState([]);
+
+  // Initial load of data
+  useEffect(() => {
+    getDatasets(config.datasetListId, '', setDatasets)
+  }, []);// Query data
 
   return (
     <div>
@@ -15,29 +24,23 @@ export default function Home(props) {
       </Container>
 
       <Container className="mt-5">
-        <SearchBar />
+        <SearchBar placeholder="Search for data resources..." />
       </Container>
 
       <Container className="mt-5">
         <Row>
-          <Col sm={4}>
-            <DomainCard dataDomain="Ops" nDatasets={3} />
-          </Col>
-          <Col sm={4}>
-            <DomainCard dataDomain="Manpower" nDatasets={3} />
-          </Col>
-          <Col sm={4}>
-            <DomainCard dataDomain="Intelligence" nDatasets={3} />
-          </Col>
-          <Col sm={4}>
-            <DomainCard dataDomain="Engineering" nDatasets={3} />
-          </Col>
-          <Col sm={4}>
-            <DomainCard dataDomain="Training" nDatasets={3} />
-          </Col>
-          <Col sm={4}>
-            <DomainCard dataDomain="Safety" nDatasets={3} />
-          </Col>
+          {datasets &&
+            props.dataDomains.map((dataDomain) => {
+              const datasetsUnderDomain = datasets.filter((element) => {
+                return element.dataDomain === dataDomain;
+              });
+              return (
+                <Col key={dataDomain} sm={4}>
+                  <DomainCard dataDomain={dataDomain} nDatasets={datasetsUnderDomain.length} />
+                </Col>
+              );
+            })
+          }
         </Row>
       </Container>
     </div>

@@ -1,7 +1,9 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Container from 'react-bootstrap/Container'
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home'
+import DomainView from './components/DomainView/DomainView';
+import DatasetView from './components/DatasetView/DatasetView';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -9,17 +11,29 @@ import './App.css';
 // Configs
 const pages = [
   {pageName: 'Home', slug: ''},
-  {pageName: 'Domains', slug: 'Domains'},
-  {pageName: 'Datasets', slug: 'Datasets'},
+  {pageName: 'Business Glossary', slug: 'business-glossary'},
 ]
+
+const dataDomains = [
+  'Ops', 'Manpower', 'Intel', 'Engineering', 'Training', 'Safety'
+];
+
+// Create views for domains
+const domainRoutes = dataDomains.map( (dataDomain) => {
+  return (
+    <Route path={`/${dataDomain.toLowerCase()}`} key={dataDomain} element={<DomainView dataDomain={dataDomain} />} />
+  );
+});
 
 function App() {
   return (
     <HashRouter>
-      <NavBar pages={pages} />
+      <NavBar pages={pages} dataDomains={dataDomains} />
       <Container className="mt-5">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home dataDomains={dataDomains} />} exact />
+          {domainRoutes}
+          <Route path="/dataset/:id" element={<DatasetView />} />
         </Routes>
       </Container>
     </HashRouter>

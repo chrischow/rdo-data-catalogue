@@ -26,6 +26,7 @@
   --light-grey-l3:  #d7dde6;
   --light-grey-l4:  #e3e7ed;
   --light-grey-l5:  #eff2f5;
+  --light-grey-l6:  #fbfcfd;
 
   /* Green */
   --green-d5:   #168c80;
@@ -120,6 +121,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
+  color: var(--dark-grey-d3)!important;
 }
 
 h1, h2, h3 {
