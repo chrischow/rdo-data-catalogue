@@ -11,7 +11,8 @@ export default function DomainView(props) {
   // Set state
   const [tables, setTables] = useState([]);
   const [datasets, setDatasets] = useState([]);
-  const [metadata, setMetadata] = useState({});
+  const [metadata, setMetadata] = useState([]);
+  const [keywords, setKeywords] = useState('');
 
   // Initial load of data
   useEffect( () => {
@@ -33,6 +34,9 @@ export default function DomainView(props) {
     );
   }, [props.dataDomain]);
 
+  // Extract datasets
+  const extractDatasets = (obj) => setMetadata(obj.values());
+
   // Process metadata
   useEffect(() => {
     if (tables && datasets) {
@@ -51,16 +55,24 @@ export default function DomainView(props) {
         <h1 className="home--title text-center">{props.dataDomain} Domain</h1>
 
       <Container className="mt-5">
-        <SearchBar placeholder="Search for datasets..." />
+        <SearchBar placeholder="Search for datasets..." updateSearch={setKeywords} />
       </Container>
 
       <Container className="mt-5">
         {metadata &&
-        Object.keys(metadata).map((datasetTitle) => {
+        metadata.filter((dataset) => {
+          return dataset.Title.includes(keywords) || 
+          dataset.useCases.includes(keywords)
+        }).map((dataset) => {
           return (
-            <DatasetCard key={datasetTitle} {...metadata[datasetTitle]} />
+            <DatasetCard key={dataset.Title} {...dataset} />
           );
         })
+        }
+        {metadata.length === 0 && 
+        <div class="text-center">
+          <h3>No datasets available.</h3>
+        </div>
         }
       </Container>
     </div>
