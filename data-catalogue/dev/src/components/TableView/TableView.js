@@ -65,10 +65,6 @@ export default function TableView(props) {
     }
   }, [columns])
 
-  useEffect(() => {
-    console.log(terms);
-  }, [terms]);
-
   return (
     <div>
       {table &&
@@ -147,7 +143,7 @@ export default function TableView(props) {
                         placement="bottom"
                         overlay={
                           <Popover id={`popover-${col.Id}`}>
-                            <Popover.Header as="h3">Definition</Popover.Header>
+                            <Popover.Header><span className="tableview--def-header">Definition</span></Popover.Header>
                             <Popover.Body>
                               <span>{term && term.definition}</span>
                             </Popover.Body>
