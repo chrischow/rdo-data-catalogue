@@ -179,13 +179,46 @@ form.rules-form .form-control {
 }
 
 /* Links */
+a.domain-link {
+  color: var(--red);
+  text-decoration: none!important;
+  transition: 0.3s;
+}
+
+a.domain-link:hover {
+  color: var(--red-d3);
+  transition: 0.3s;
+}
+
 a.standard-link {
   color: var(--green-d2);
-  /* text-decoration: none!important; */
+  text-decoration: none!important;
   transition: 0.3s;
 }
 
 a.standard-link:hover {
   color: var(--green-d5);
+  transition: 0.3s;
+}
+
+a.dataset-link {
+  color: var(--purple);
+  text-decoration: none!important;
+  transition: 0.3s;
+}
+
+a.dataset-link:hover {
+  color: var(--purple-d2);
+  transition: 0.3s;
+}
+
+a.term-link {
+  color: var(--light-grey-d4);
+  text-decoration: none!important;
+  transition: 0.3s;
+}
+
+a.term-link:hover {
+  color: var(--dark-grey-l5);
   transition: 0.3s;
 }
