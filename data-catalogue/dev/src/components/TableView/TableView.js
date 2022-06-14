@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
+import { BiHash } from 'react-icons/bi';
 import { BsTable, BsKeyFill } from 'react-icons/bs';
-import { TbArrowBack } from 'react-icons/tb';
+import { FaDatabase } from 'react-icons/fa';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
 import './TableView.css';
@@ -74,7 +74,7 @@ export default function TableView(props) {
           {table.Title}
         </h1>
       }
-      <Container className="mt-5">
+      <div className="mt-5">
         <table className="table">
           {table && <tbody>
             <tr>
@@ -96,17 +96,17 @@ export default function TableView(props) {
             <tr>
               <td className="table-metadata--header infotable--cell">Dataset</td>
               <td className="infotable--cell">
-                <Link className="standard-link d-flex align-items-center" to={`/dataset/${table.parentDataset_Id}`}>
-                  {table.parentDataset_Title} 
-                  <TbArrowBack style={{ marginLeft: "3px" }}/>
+                <Link className="dataset-link d-flex align-items-center" to={`/dataset/${table.parentDataset_Id}`}>
+                  <FaDatabase className="inline" style={{ marginRight: '5px' }} />
+                  {table.parentDataset_Title}
                 </Link>
               </td>
             </tr>
           </tbody>}
         </table>
-      </Container>
+      </div>
 
-      <Container className="mt-5">
+      <div className="mt-5">
         <h2>Columns</h2>
         <div className="mt-4">
           <Table striped responsive className="table column-table">
@@ -160,7 +160,10 @@ export default function TableView(props) {
                           </Popover>
                         }
                       >
-                        <span className="tableview--term">{col.businessTerm_Title}</span>
+                        <Link className="term-link d-flex align-items-center" to={`/term/${col.businessTerm_Id}`}>
+                          <BiHash style={{ marginRight: '1px' }} />
+                          {col.businessTerm_Title}
+                        </Link>
                       </OverlayTrigger>
                       </td>
                     </tr>
@@ -170,7 +173,7 @@ export default function TableView(props) {
             </tbody>
           </Table>
         </div>
-      </Container>
+      </div>
     </div>
 
   );
