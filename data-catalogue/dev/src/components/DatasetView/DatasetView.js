@@ -56,20 +56,20 @@ export default function DatasetView(props) {
               <td className="infotable--cell">{dataset.useCases}</td>
             </tr>
             <tr>
-              <td className="dataset-metadata--header infotable--cell">Domain</td>
-              <td className="infotable--cell">
-                <Link className="standard-link" to={`/${dataset.dataDomain}`}>
-                  {dataset.dataDomain}
-                </Link>
-              </td>
-            </tr>
-            <tr>
               <td className="dataset-metadata--header infotable--cell">Owner</td>
               <td className="infotable--cell">{dataset.owner}</td>
             </tr>
             <tr>
               <td className="dataset-metadata--header infotable--cell">Point of Contact</td>
               <td className="infotable--cell">{dataset.pointOfContact}</td>
+            </tr>
+            <tr>
+              <td className="dataset-metadata--header infotable--cell">Domain</td>
+              <td className="infotable--cell">
+                <Link className="standard-link" to={`/${dataset.dataDomain}`}>
+                  {dataset.dataDomain}
+                </Link>
+              </td>
             </tr>
           </tbody>
         </table>
