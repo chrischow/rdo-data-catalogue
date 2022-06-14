@@ -45,10 +45,6 @@ export default function DomainView(props) {
       setMetadata(combinedData);
     }
   }, [tables, datasets]);
-  
-  useEffect(() => {
-    if (metadata) console.log(metadata);
-  }, [metadata]);
 
   return (
     <div>

@@ -39,10 +39,7 @@ export default function DatasetView(props) {
       extractDataset
     );
   }, []);
-
-  useEffect(() => {
-    console.log(tables);
-  }, [tables, dataset])
+  
   return (
     <div>
       {dataset && 
@@ -79,7 +76,7 @@ export default function DatasetView(props) {
         <div className="mt-4">
           {tables && 
           tables.map(table => {
-            return <TableCard {...table} />
+            return <TableCard key={table.Title} {...table} />
           })
           }
         </div>
