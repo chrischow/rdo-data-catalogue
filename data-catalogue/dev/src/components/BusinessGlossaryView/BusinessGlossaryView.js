@@ -53,7 +53,7 @@ export default function BusinessGlossaryView(props) {
                   term.source.includes(keywords)
               }).map(term => {
                 return (
-                  <tr>
+                  <tr key={term.Id}>
                     <td>{term.Title}</td>
                     <td>{term.definition}</td>
                     <td>{term.businessRules}</td>
