@@ -5,6 +5,7 @@ import Home from './components/Home/Home'
 import DomainView from './components/DomainView/DomainView';
 import DatasetView from './components/DatasetView/DatasetView';
 import TableView from './components/TableView/TableView';
+import BusinessGlossaryView from './components/BusinessGlossaryView/BusinessGlossaryView';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -36,6 +37,7 @@ function App() {
           {domainRoutes}
           <Route path="/dataset/:id" element={<DatasetView />} />
           <Route path="/table/:id" element={<TableView />} />
+          <Route path="/business-glossary" element={<BusinessGlossaryView />} />
         </Routes>
       </Container>
     </HashRouter>
