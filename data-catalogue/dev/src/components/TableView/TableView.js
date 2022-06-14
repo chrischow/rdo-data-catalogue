@@ -115,7 +115,7 @@ export default function TableView(props) {
                 <th>Description</th>
                 <th>Data Type</th>
                 <th>Business Rules</th>
-                <th>Foreign Key?</th>
+                {/* <th>Foreign Key?</th> */}
                 <th>Business Term</th>
               </tr>
             </thead>
@@ -142,9 +142,9 @@ export default function TableView(props) {
                       <td>{col.columnDescription}</td>
                       <td className="datatype-cell">{col.dataType}</td>
                       <td>{col.businessRules}</td>
-                      <td>
+                      {/* <td>
                         {col.isForeignKey ? <TiTick /> : ''}
-                      </td>
+                      </td> */}
                       <td>
                       <OverlayTrigger
                         trigger={['hover', 'focus']}
