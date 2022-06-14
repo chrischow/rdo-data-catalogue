@@ -1,7 +1,8 @@
 import $ from 'jquery';
+import { config } from '../config';
 
 // Configs
-const apiUrl = 'http://127.0.0.1:5000/ravenpoint/_api/';
+const apiUrl = config.apiUrl;
 
 // Generic query
 export function getListItems(listId, selectStr, filterStr, expandStr, callback) {
