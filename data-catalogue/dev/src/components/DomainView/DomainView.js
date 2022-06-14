@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container'
+import { MdBusinessCenter } from 'react-icons/md';
 import SearchBar from '../SearchBar/SearchBar';
 import DatasetCard from '../DatasetCard/DatasetCard';
 import { getListItems, getTablesByDomain } from '../../utils/queryData';
@@ -51,7 +52,10 @@ export default function DomainView(props) {
 
   return (
     <div>
-        <h1 className="home--title text-center">{props.dataDomain} Domain</h1>
+        <h1 className="home--title text-center d-flex align-items-center justify-content-center">
+          <MdBusinessCenter style={{ color: '#FF5364', marginRight: '10px' }} />
+          {props.dataDomain} Domain
+        </h1>
 
       <Container className="mt-5">
         <SearchBar placeholder="Search for datasets..." updateSearch={setKeywords} />
@@ -69,7 +73,7 @@ export default function DomainView(props) {
         })
         }
         {metadata.length === 0 && 
-        <div class="text-center">
+        <div className="text-center">
           <h3>No datasets available.</h3>
         </div>
         }
