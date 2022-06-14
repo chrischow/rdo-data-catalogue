@@ -177,3 +177,15 @@ form.rules-form .form-control {
   background-color: var(--purple)!important;
   color: white;
 }
+
+/* Links */
+a.standard-link {
+  color: var(--green-d2);
+  /* text-decoration: none!important; */
+  transition: 0.3s;
+}
+
+a.standard-link:hover {
+  color: var(--green-d5);
+  transition: 0.3s;
+}
