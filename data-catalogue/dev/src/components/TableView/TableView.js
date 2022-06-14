@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { BsTable, BsKeyFill } from 'react-icons/bs';
-import { TiTick } from 'react-icons/ti';
+import { TbArrowBack } from 'react-icons/tb';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
 import './TableView.css';
@@ -96,8 +96,9 @@ export default function TableView(props) {
             <tr>
               <td className="table-metadata--header infotable--cell">Dataset</td>
               <td className="infotable--cell">
-                <Link className="standard-link" to={`/dataset/${table.parentDataset_Id}`}>
-                  {table.parentDataset_Title}
+                <Link className="standard-link d-flex align-items-center" to={`/dataset/${table.parentDataset_Id}`}>
+                  {table.parentDataset_Title} 
+                  <TbArrowBack style={{ marginLeft: "3px" }}/>
                 </Link>
               </td>
             </tr>

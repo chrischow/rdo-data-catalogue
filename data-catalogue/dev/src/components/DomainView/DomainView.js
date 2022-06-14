@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container'
 import SearchBar from '../SearchBar/SearchBar';
 import DatasetCard from '../DatasetCard/DatasetCard';
 import { getListItems, getTablesByDomain } from '../../utils/queryData';
-import { innerJoin } from '../../utils/processData';
 import { config } from '../../config';
 
 export default function DomainView(props) {

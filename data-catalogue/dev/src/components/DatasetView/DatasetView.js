@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { FaDatabase } from 'react-icons/fa';
+import { TbArrowBack } from 'react-icons/tb';
 import TableCard from '../TableCard/TableCard';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
@@ -66,8 +67,9 @@ export default function DatasetView(props) {
             <tr>
               <td className="dataset-metadata--header infotable--cell">Domain</td>
               <td className="infotable--cell">
-                <Link className="standard-link" to={`/${dataset.dataDomain}`}>
+                <Link className="standard-link d-flex align-items-center" to={`/${dataset.dataDomain}`}>
                   {dataset.dataDomain}
+                  <TbArrowBack style={{ marginLeft: "3px" }}/>
                 </Link>
               </td>
             </tr>
