@@ -21,3 +21,25 @@ data-profiler/dev.env.production.local
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+data-catalogue/dev/node_modules
+data-catalogue/dev/.pnp
+data-catalogue/dev.pnp.js
+
+# testing
+data-catalogue/dev/coverage
+
+# production
+data-catalogue/dev/build
+
+# misc
+data-catalogue/dev/.DS_Store
+data-catalogue/dev/.env.local
+data-catalogue/dev/.env.development.local
+data-catalogue/dev/.env.test.local
+data-catalogue/dev/.env.production.local
+
+data-catalogue/dev/npm-debug.log*
+data-catalogue/dev/yarn-debug.log*
+data-catalogue/dev/yarn-error.log*
