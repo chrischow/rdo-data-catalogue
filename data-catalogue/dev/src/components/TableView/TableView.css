@@ -13,13 +13,13 @@
 }
 
 .tableview--term {
-  color: var(--green-d1);
+  color: var(--green-d2);
   text-decoration: underline;
   transition: 0.3s;
 }
 
 .tableview--term:hover {
-  color: var(--green-d3);
+  color: var(--green-d5);
   text-decoration: underline;
   transition: 0.3s;
   cursor: pointer;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -18,6 +18,7 @@ export default function TableView(props) {
   const [columns, setColumns] = useState([]);
   const [table, setTable] = useState([]);
   const [terms, setTerms] = useState([]);
+  const [dataset, setDataset] = useState({});
 
   // Function to set dataset - expect an array of length 1
   const extractTable = (arr) => {
@@ -37,9 +38,9 @@ export default function TableView(props) {
 
     getListItems(
       config.tableListId,
-      'Id,Title,tableDescription,updateFrequency,site,guid',
+      'Id,Title,tableDescription,updateFrequency,site,guid,parentDataset/Title',
       `Id eq ${params.id}`,
-      '',
+      'parentDataset',
       extractTable
     );
   }, []);
@@ -91,6 +92,14 @@ export default function TableView(props) {
             <tr>
               <td className="table-metadata--header infotable--cell">ID</td>
               <td className="infotable--cell">{table.guid}</td>
+            </tr>
+            <tr>
+              <td className="table-metadata--header infotable--cell">Dataset</td>
+              <td className="infotable--cell">
+                <Link className="standard-link" to={`/dataset/${table.parentDataset_Id}`}>
+                  {table.parentDataset_Title}
+                </Link>
+              </td>
             </tr>
           </tbody>}
         </table>
