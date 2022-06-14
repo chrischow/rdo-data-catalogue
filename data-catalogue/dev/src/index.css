@@ -122,6 +122,11 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   color: var(--dark-grey-d3)!important;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1, h2, h3 {
@@ -130,6 +135,10 @@ h1, h2, h3 {
 
 .monospace {
   font-family: Consolas, monospace;
+}
+
+.strong {
+  font-weight: bold;
 }
 
 /* Cards */
