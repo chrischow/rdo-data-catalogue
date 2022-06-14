@@ -1,0 +1,26 @@
+.column-table {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.0rem;
+}
+
+.datatype-cell {
+  font-family: 'Consolas', monospace;
+}
+
+.table-metadata--header {
+  background-color: var(--green-d2)!important;
+  color: white;
+}
+
+.tableview--term {
+  color: var(--green-d1);
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.tableview--term:hover {
+  color: var(--green-d3);
+  text-decoration: underline;
+  transition: 0.3s;
+  cursor: pointer;
+}
