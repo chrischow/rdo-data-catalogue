@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import './NavBar.css';
 
 export default function NavBar(props) {
     const navLinks = props.pages.map(function (item) {
