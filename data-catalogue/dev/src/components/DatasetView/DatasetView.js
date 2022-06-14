@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { FaDatabase } from 'react-icons/fa';
 import TableCard from '../TableCard/TableCard';
@@ -21,7 +21,7 @@ export default function DatasetView(props) {
   };
 
   // Initial load of data
-  useEffect( () => {
+  useEffect(() => {
     // Get datasets and tables
     getListItems(
       config.tableListId,
@@ -39,14 +39,14 @@ export default function DatasetView(props) {
       extractDataset
     );
   }, []);
-  
+
   return (
     <div>
-      {dataset && 
-      <h1 className="datasetview--title d-flex align-items-center">
-        <FaDatabase style={{color: '#7B73F0', marginRight: '10px'}} />
-        {dataset.Title}
-      </h1>
+      {dataset &&
+        <h1 className="datasetview--title d-flex align-items-center">
+          <FaDatabase style={{ color: '#7B73F0', marginRight: '10px' }} />
+          {dataset.Title}
+        </h1>
       }
       <Container className="mt-5">
         <table className="table">
@@ -57,7 +57,11 @@ export default function DatasetView(props) {
             </tr>
             <tr>
               <td className="dataset-metadata--header infotable--cell">Domain</td>
-              <td className="infotable--cell">{dataset.dataDomain}</td>
+              <td className="infotable--cell">
+                <Link className="standard-link" to={`/${dataset.dataDomain}`}>
+                  {dataset.dataDomain}
+                </Link>
+              </td>
             </tr>
             <tr>
               <td className="dataset-metadata--header infotable--cell">Owner</td>
@@ -74,10 +78,10 @@ export default function DatasetView(props) {
       <Container className="mt-5">
         <h2>Tables</h2>
         <div className="mt-4">
-          {tables && 
-          tables.map(table => {
-            return <TableCard key={table.Title} {...table} />
-          })
+          {tables &&
+            tables.map(table => {
+              return <TableCard key={table.Title} {...table} />
+            })
           }
         </div>
       </Container>
