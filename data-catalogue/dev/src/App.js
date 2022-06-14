@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar';
 import Home from './components/Home/Home'
 import DomainView from './components/DomainView/DomainView';
 import DatasetView from './components/DatasetView/DatasetView';
+import TableView from './components/TableView/TableView';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/" element={<Home dataDomains={dataDomains} />} exact />
           {domainRoutes}
           <Route path="/dataset/:id" element={<DatasetView />} />
+          <Route path="/table/:id" element={<TableView />} />
         </Routes>
       </Container>
     </HashRouter>

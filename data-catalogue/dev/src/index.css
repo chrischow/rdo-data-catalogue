@@ -153,12 +153,9 @@ h1, h2, h3 {
 /* Tables */
 table {
   font-family: 'Consolas', monospace;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
-thead th {
-  font-weight: normal;
-}
 
 /* Center checkbox */
 .form-check-inline .form-check-input {
@@ -173,4 +170,10 @@ thead th {
 /* Rules form */
 form.rules-form .form-control {
   font-size: 0.9rem!important;
+}
+
+/* Backgrounds */
+.bg-purple {
+  background-color: var(--purple)!important;
+  color: white;
 }
