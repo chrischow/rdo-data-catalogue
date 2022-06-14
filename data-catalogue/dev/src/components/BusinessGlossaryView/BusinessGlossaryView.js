@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import { getListItems } from "../../utils/queryData";
 import SearchBar from "../SearchBar/SearchBar";
@@ -47,14 +48,18 @@ export default function BusinessGlossaryView(props) {
           <tbody>
             {terms &&
               terms.filter(term => {
-                return term.Title.includes(keywords) || 
+                return term.Title.includes(keywords) ||
                   term.definition.includes(keywords) ||
                   term.businessRules.includes(keywords) ||
                   term.source.includes(keywords)
               }).map(term => {
                 return (
                   <tr key={term.Id}>
-                    <td>{term.Title}</td>
+                    <td>
+                      <Link className="term-link" to={`/term/${term.Id}`}>
+                        {term.Title}
+                      </Link>
+                    </td>
                     <td>{term.definition}</td>
                     <td>{term.businessRules}</td>
                     <td>{term.source}</td>
