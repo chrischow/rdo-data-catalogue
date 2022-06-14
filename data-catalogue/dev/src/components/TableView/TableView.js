@@ -150,7 +150,7 @@ export default function TableView(props) {
                       <OverlayTrigger
                         trigger={['hover', 'focus']}
                         key={`trigger-${col.Id}`}
-                        placement="bottom"
+                        placement="left"
                         overlay={
                           <Popover id={`popover-${col.Id}`}>
                             <Popover.Header><span className="tableview--def-header">Definition</span></Popover.Header>
