@@ -7,7 +7,7 @@ import { getListItems, getTablesByDomain } from '../../utils/queryData';
 import { config } from '../../config';
 
 export default function DomainView(props) {
-  
+
   // Set state
   const [tables, setTables] = useState([]);
   const [datasets, setDatasets] = useState([]);
@@ -15,7 +15,7 @@ export default function DomainView(props) {
   const [keywords, setKeywords] = useState('');
 
   // Initial load of data
-  useEffect( () => {
+  useEffect(() => {
     // Get datasets and tables
     getListItems(
       config.tableListId,
@@ -52,10 +52,10 @@ export default function DomainView(props) {
 
   return (
     <div>
-        <h1 className="home--title text-center d-flex align-items-center justify-content-center">
-          <MdBusinessCenter style={{ color: '#FF5364', marginRight: '10px' }} />
-          {props.dataDomain} Domain
-        </h1>
+      <h1 className="home--title text-center d-flex align-items-center justify-content-center">
+        <MdBusinessCenter style={{ color: '#FF5364', marginRight: '10px' }} />
+        {props.dataDomain} Domain
+      </h1>
 
       <Container className="mt-5">
         <SearchBar placeholder="Search for datasets..." updateSearch={setKeywords} />
@@ -63,19 +63,28 @@ export default function DomainView(props) {
 
       <Container className="mt-5">
         {metadata &&
-        metadata.filter((dataset) => {
-          return dataset.Title.includes(keywords) || 
-          dataset.useCases.includes(keywords)
-        }).map((dataset) => {
-          return (
-            <DatasetCard key={dataset.Title} {...dataset} />
-          );
-        })
+          metadata.filter((dataset) => {
+            return dataset.Title.includes(keywords) ||
+              dataset.useCases.includes(keywords)
+          }).map((dataset) => {
+            return (
+              <DatasetCard key={dataset.Title} {...dataset} />
+            );
+          })
         }
-        {metadata.length === 0 && 
-        <div className="text-center">
-          <h3>No datasets available.</h3>
-        </div>
+        {metadata.length > 0 && metadata.filter((dataset) => {
+          return dataset.Title.includes(keywords) ||
+            dataset.useCases.includes(keywords)
+        }).length === 0 &&
+          <div className="text-center">
+            <h4 style={{ fontWeight: 'normal' }}>No results match your search criteria "<em>{keywords}</em>".</h4>
+          </div>
+        }
+
+        {metadata.length === 0 &&
+          <div className="text-center">
+            <h3>No datasets available.</h3>
+          </div>
         }
       </Container>
     </div>
