@@ -6,6 +6,7 @@ import DomainView from './components/DomainView/DomainView';
 import DatasetView from './components/DatasetView/DatasetView';
 import TableView from './components/TableView/TableView';
 import BusinessGlossaryView from './components/BusinessGlossaryView/BusinessGlossaryView';
+import BusinessTermView from './components/BusinessTermView/BusinessTermView';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/dataset/:id" element={<DatasetView />} />
           <Route path="/table/:id" element={<TableView />} />
           <Route path="/business-glossary" element={<BusinessGlossaryView />} />
+          <Route path="/term/:id" element={<BusinessTermView />} />
         </Routes>
       </Container>
     </HashRouter>
