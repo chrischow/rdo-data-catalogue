@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
 import { FaDatabase } from 'react-icons/fa';
-import { TbArrowBack } from 'react-icons/tb';
+import { MdBusinessCenter } from 'react-icons/md';
 import TableCard from '../TableCard/TableCard';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
@@ -49,7 +48,7 @@ export default function DatasetView(props) {
           {dataset.Title}
         </h1>
       }
-      <Container className="mt-5">
+      <div className="mt-5">
         <table className="table">
           <tbody>
             <tr>
@@ -67,17 +66,17 @@ export default function DatasetView(props) {
             <tr>
               <td className="dataset-metadata--header infotable--cell">Domain</td>
               <td className="infotable--cell">
-                <Link className="standard-link d-flex align-items-center" to={`/${dataset.dataDomain}`}>
+                <Link className="domain-link d-flex align-items-center" to={`/${dataset.dataDomain}`}>
+                  <MdBusinessCenter style={{ marginRight: '5px' }} />
                   {dataset.dataDomain}
-                  <TbArrowBack style={{ marginLeft: "3px" }}/>
                 </Link>
               </td>
             </tr>
           </tbody>
         </table>
-      </Container>
+      </div>
 
-      <Container className="mt-5">
+      <div className="mt-5">
         <h2>Tables</h2>
         <div className="mt-4">
           {tables &&
@@ -86,7 +85,7 @@ export default function DatasetView(props) {
             })
           }
         </div>
-      </Container>
+      </div>
     </div>
 
   );
