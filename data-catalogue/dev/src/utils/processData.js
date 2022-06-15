@@ -29,3 +29,37 @@ export function innerJoin(left, right, left_on, right_on) {
 
   return output;
 }
+
+// Filter functions
+export function filterDatasets(datasetArray, keywords){
+  return datasetArray.filter(dataset => {
+    return dataset.Title.toLowerCase().includes(keywords) || 
+      (dataset && dataset.useCases.toLowerCase().includes(keywords))
+  });
+};
+
+export function filterTables(tablesArray, keywords){
+  return tablesArray.filter(table => {
+    return table.Title.includes(keywords) ||
+      (table.tableDescription && table.tableDescription.toLowerCase().includes(keywords)) ||
+      (table.updateFrequency && table.updateFrequency.toLowerCase().includes(keywords))
+  });
+};
+
+export function filterColumns(columnsArray, keywords){
+  return columnsArray.filter(column => {
+    return column.Title.toLowerCase().includes(keywords) ||
+      (column.columnDescription && column.columnDescription.toLowerCase().includes(keywords)) ||
+      (column.dataType && column.dataType.toLowerCase().includes(keywords)) ||
+      (column.businessRules && column.businessRules.toLowerCase().includes(keywords))
+  });
+};
+
+export function filterTerms(termsArray, keywords){
+  return termsArray.filter(term => {
+    return term.Title.toLowerCase().includes(keywords) ||
+      (term.definition && term.definition.toLowerCase().includes(keywords)) ||
+      (term.businessRules && term.businessRules.toLowerCase().includes(keywords)) ||
+      (term.Source && term.Source.toLowerCase().includes(keywords))
+  });
+};

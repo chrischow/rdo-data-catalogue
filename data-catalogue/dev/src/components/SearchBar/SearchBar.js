@@ -4,7 +4,7 @@ import './SearchBar.css'
 export default function SearchBar(props) {
   // Function to handle change in keywords
   const handleChange = (event) => {
-    props.updateSearch(event.target.value);
+    props.updateSearch(event.target.value.toLowerCase());
   }
 
   return (

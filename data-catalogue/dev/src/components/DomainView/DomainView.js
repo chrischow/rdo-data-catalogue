@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container'
-import { MdBusinessCenter } from 'react-icons/md';
 import SearchBar from '../SearchBar/SearchBar';
 import DatasetCard from '../DatasetCard/DatasetCard';
 import DomainIcon from '../DomainIcon/DomainIcon';
-import { getListItems, getTablesByDomain } from '../../utils/queryData';
+import { getListItems } from '../../utils/queryData';
+import { filterDatasets } from '../../utils/processData';
 import { config } from '../../config';
 
 export default function DomainView(props) {
@@ -63,20 +63,13 @@ export default function DomainView(props) {
       </Container>
 
       <Container className="mt-5">
-        {metadata &&
-          metadata.filter((dataset) => {
-            return dataset.Title.includes(keywords) ||
-              dataset.useCases.includes(keywords)
-          }).map((dataset) => {
+        {metadata && filterDatasets(metadata, keywords).map((dataset) => {
             return (
               <DatasetCard key={dataset.Title} {...dataset} />
             );
           })
         }
-        {metadata.length > 0 && metadata.filter((dataset) => {
-          return dataset.Title.includes(keywords) ||
-            dataset.useCases.includes(keywords)
-        }).length === 0 &&
+        {metadata.length > 0 && filterDatasets(metadata, keywords).length === 0 &&
           <div className="text-center">
             <h4 style={{ fontWeight: 'normal' }}>No results match your search criteria "<em>{keywords}</em>".</h4>
           </div>

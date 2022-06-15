@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import { BiHash } from 'react-icons/bi';
 import { getListItems } from "../../utils/queryData";
+import { filterTerms } from "../../utils/processData";
 import SearchBar from "../SearchBar/SearchBar";
 import { config } from '../../config';
 
@@ -28,16 +29,6 @@ export default function BusinessGlossaryView(props) {
     );
   }, []);
 
-  // Function to filter terms
-  const filterTerms = (termsArray) => {
-    return termsArray.filter(term => {
-      return term.Title.includes(keywords) ||
-        term.definition.includes(keywords) ||
-        term.businessRules.includes(keywords) ||
-        term.source.includes(keywords)
-    });
-  };
-
   return (
     <div>
       <h1 className="home--title text-center">Business Glossary</h1>
@@ -47,7 +38,7 @@ export default function BusinessGlossaryView(props) {
       </div>
 
       <div className="mt-5">
-        {terms && filterTerms(terms).length > 0 &&
+        {terms && filterTerms(terms, keywords).length > 0 &&
           <Table striped responsive bordered className="table column-table">
             <thead className="table-dark">
               <tr>
@@ -58,7 +49,7 @@ export default function BusinessGlossaryView(props) {
               </tr>
             </thead>
             <tbody>
-              {filterTerms(terms).map(term => {
+              {filterTerms(terms, keywords).map(term => {
                 return (
                   <tr key={term.Id}>
                     <td>
@@ -75,7 +66,7 @@ export default function BusinessGlossaryView(props) {
               })}
             </tbody>
           </Table>}
-        {terms && terms.length > 0 && filterTerms(terms).length === 0 && keywords != '' &&
+        {terms && terms.length > 0 && filterTerms(terms, keywords).length === 0 && keywords != '' &&
         <div className="mt-3 text-center">
           <h4 style={{ fontWeight: 'normal' }}>No results match your search criteria "<em>{keywords}</em>".</h4>
         </div>

@@ -13,6 +13,7 @@ import TableCard from '../TableCard/TableCard';
 import SearchBar from '../SearchBar/SearchBar';
 import NoResultsText from '../NoResultsText/NoResultsText';
 import { getListItems } from '../../utils/queryData';
+import { filterDatasets, filterTables, filterColumns, filterTerms } from '../../utils/processData';
 import { config } from '../../config';
 import './Home.css';
 
@@ -77,40 +78,6 @@ export default function Home(props) {
     }
   }, [tables, datasets]);
 
-  // Filter functions
-  const filterDatasets = (datasetArray) => {
-    return datasetArray.filter(dataset => {
-      return dataset.Title.includes(keywords) || 
-        dataset.useCases.includes(keywords)
-    });
-  };
-
-  const filterTables = (tablesArray) => {
-    return tablesArray.filter(table => {
-      return table.Title.includes(keywords) ||
-        table.tableDescription.includes(keywords) ||
-        table.updateFrequency.includes(keywords)
-    });
-  };
-
-  const filterColumns = (columnsArray) => {
-    return columnsArray.filter(column => {
-      return column.Title.includes(keywords) ||
-        column.columnDescription.includes(keywords) ||
-        column.dataType.includes(keywords) ||
-        column.businessRules.includes(keywords)
-    });
-  };
-
-  const filterTerms = (termsArray) => {
-    return termsArray.filter(term => {
-      return term.Title.includes(keywords) ||
-        term.definition.includes(keywords) ||
-        term.businessRules.includes(keywords) ||
-        term.source.includes(keywords)
-    });
-  };
-
   return (
     <Container>
       <div>
@@ -155,27 +122,27 @@ export default function Home(props) {
                 <div className="mt-4">
                   <Tab.Content>
                     <Tab.Pane eventKey="datasets">
-                      {datasetsPlus && filterDatasets(datasetsPlus).length > 0 &&
-                        filterDatasets(datasetsPlus).map(dataset => {
+                      {datasetsPlus && filterDatasets(datasetsPlus, keywords).length > 0 &&
+                        filterDatasets(datasetsPlus, keywords).map(dataset => {
                           return <DatasetCard key={dataset.Title} {...dataset} />
                         })
                       }
-                      {datasetsPlus && filterDatasets(datasetsPlus).length == 0 &&
+                      {datasetsPlus && filterDatasets(datasetsPlus, keywords).length == 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="tables">
-                      {tables && filterTables(tables).length > 0 &&
-                        filterTables(tables).map(table => {
+                      {tables && filterTables(tables, keywords).length > 0 &&
+                        filterTables(tables, keywords).map(table => {
                           return <TableCard key={table.Title} {...table} />
                         })
                       }
-                      {tables && filterTables(tables).length == 0 &&
+                      {tables && filterTables(tables, keywords).length == 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="columns">
-                      {columns && filterColumns(columns).length > 0 &&
+                      {columns && filterColumns(columns, keywords).length > 0 &&
                         <Table striped responsive className="table column-table">
                           <thead className="strong">
                             <tr>
@@ -186,7 +153,7 @@ export default function Home(props) {
                             </tr>
                           </thead>
                           <tbody>
-                            {filterColumns(columns).map(column => {
+                            {filterColumns(columns, keywords).map(column => {
                               return (
                                 <tr key={column.Id}>
                                   <td>{column.Title}</td>
@@ -199,12 +166,12 @@ export default function Home(props) {
                           </tbody>
                         </Table>
                       }
-                      {columns && filterColumns(columns).length == 0 &&
+                      {columns && filterColumns(columns, keywords).length == 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="terms">
-                      {terms && filterTerms(terms).length > 0 &&
+                      {terms && filterTerms(terms, keywords).length > 0 &&
                         <Table striped responsive className="table column-table">
                           <thead className="strong">
                             <tr>
@@ -215,14 +182,14 @@ export default function Home(props) {
                             </tr>
                           </thead>
                           <tbody>
-                            {filterTerms(terms).map(term => {
+                            {filterTerms(terms, keywords).map(term => {
                               return (
                                 <tr key={term.Id}>
                                   <td>
-                                  <Link className="term-link" to={`/term/${term.Id}`}>
-                                    <BiHash style={{ marginRight: '1px' }} />
-                                    {term.Title}
-                                  </Link>
+                                    <Link className="term-link" to={`/term/${term.Id}`}>
+                                      <BiHash style={{ marginRight: '1px' }} />
+                                      {term.Title}
+                                    </Link>
                                   </td>
                                   <td>{term.definition}</td>
                                   <td>{term.businessRules}</td>
@@ -233,7 +200,7 @@ export default function Home(props) {
                           </tbody>
                         </Table>
                       }
-                      {terms && filterTerms(terms).length == 0 &&
+                      {terms && filterTerms(terms, keywords).length == 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
