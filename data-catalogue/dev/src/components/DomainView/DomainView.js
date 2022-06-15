@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import { MdBusinessCenter } from 'react-icons/md';
 import SearchBar from '../SearchBar/SearchBar';
 import DatasetCard from '../DatasetCard/DatasetCard';
+import DomainIcon from '../DomainIcon/DomainIcon';
 import { getListItems, getTablesByDomain } from '../../utils/queryData';
 import { config } from '../../config';
 
@@ -53,7 +54,7 @@ export default function DomainView(props) {
   return (
     <div>
       <h1 className="home--title text-center d-flex align-items-center justify-content-center">
-        <MdBusinessCenter style={{ color: '#FF5364', marginRight: '10px' }} />
+        <DomainIcon dataDomain={props.dataDomain} styleParams={{ color: '#FF5364', marginRight: '10px' }} />
         {props.dataDomain} Domain
       </h1>
 

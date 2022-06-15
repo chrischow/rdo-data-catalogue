@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaDatabase } from 'react-icons/fa';
-import { MdBusinessCenter } from 'react-icons/md';
+import DomainIcon from '../DomainIcon/DomainIcon';
 import TableCard from '../TableCard/TableCard';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
@@ -67,7 +67,7 @@ export default function DatasetView(props) {
               <td className="dataset-metadata--header infotable--cell">Domain</td>
               <td className="infotable--cell">
                 <Link className="domain-link d-flex align-items-center" to={`/${dataset.dataDomain}`}>
-                  <MdBusinessCenter style={{ marginRight: '5px' }} />
+                  <DomainIcon dataDomain={dataset.dataDomain} styleParams={{ marginRight: '5px' }} />
                   {dataset.dataDomain}
                 </Link>
               </td>
