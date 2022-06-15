@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import './NavBar.css';
 
@@ -18,7 +18,9 @@ export default function NavBar(props) {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand href="/#/">RDO Data Catalogue</Navbar.Brand>
+                <Link style={{ textDecoration: 'none' }} to="/">
+                    <Navbar.Brand>RDO Data Catalogue</Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end ml-auto" id="basic-navbar-nav">
                     <Nav>
