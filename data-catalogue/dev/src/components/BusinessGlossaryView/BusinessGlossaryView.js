@@ -28,6 +28,16 @@ export default function BusinessGlossaryView(props) {
     );
   }, []);
 
+  // Function to filter terms
+  const filterTerms = (termsArray) => {
+    return termsArray.filter(term => {
+      return term.Title.includes(keywords) ||
+        term.definition.includes(keywords) ||
+        term.businessRules.includes(keywords) ||
+        term.source.includes(keywords)
+    });
+  };
+
   return (
     <div>
       <h1 className="home--title text-center">Business Glossary</h1>
@@ -37,12 +47,7 @@ export default function BusinessGlossaryView(props) {
       </div>
 
       <div className="mt-5">
-        {terms && terms.filter(term => {
-          return term.Title.includes(keywords) ||
-            term.definition.includes(keywords) ||
-            term.businessRules.includes(keywords) ||
-            term.source.includes(keywords)
-        }).length > 0 &&
+        {terms && filterTerms(terms).length > 0 &&
           <Table striped responsive bordered className="table column-table">
             <thead className="table-dark">
               <tr>
@@ -53,38 +58,31 @@ export default function BusinessGlossaryView(props) {
               </tr>
             </thead>
             <tbody>
-              {terms &&
-                terms.filter(term => {
-                  return term.Title.includes(keywords) ||
-                    term.definition.includes(keywords) ||
-                    term.businessRules.includes(keywords) ||
-                    term.source.includes(keywords)
-                }).map(term => {
-                  return (
-                    <tr key={term.Id}>
-                      <td>
-                        <Link className="term-link" to={`/term/${term.Id}`}>
-                          <BiHash style={{ marginRight: '1px' }} />
-                          {term.Title}
-                        </Link>
-                      </td>
-                      <td>{term.definition}</td>
-                      <td>{term.businessRules}</td>
-                      <td>{term.source}</td>
-                    </tr>
-                  );
-                })
-              }
+              {filterTerms(terms).map(term => {
+                return (
+                  <tr key={term.Id}>
+                    <td>
+                      <Link className="term-link" to={`/term/${term.Id}`}>
+                        <BiHash style={{ marginRight: '1px' }} />
+                        {term.Title}
+                      </Link>
+                    </td>
+                    <td>{term.definition}</td>
+                    <td>{term.businessRules}</td>
+                    <td>{term.source}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </Table>}
-        {terms && terms.filter(term => {
-          return term.Title.includes(keywords) ||
-            term.definition.includes(keywords) ||
-            term.businessRules.includes(keywords) ||
-            term.source.includes(keywords)
-        }).length === 0 && 
+        {terms && terms.length > 0 && filterTerms(terms).length === 0 && keywords != '' &&
         <div className="mt-3 text-center">
           <h4 style={{ fontWeight: 'normal' }}>No results match your search criteria "<em>{keywords}</em>".</h4>
+        </div>
+        }
+        {terms.length === 0 &&
+        <div className="text-center">
+          <h3>No terms available.</h3>
         </div>
         }
       </div>

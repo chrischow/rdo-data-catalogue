@@ -11,6 +11,7 @@ import DomainCard from '../DomainCard/DomainCard';
 import DatasetCard from '../DatasetCard/DatasetCard';
 import TableCard from '../TableCard/TableCard';
 import SearchBar from '../SearchBar/SearchBar';
+import NoResultsText from '../NoResultsText/NoResultsText';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
 import './Home.css';
@@ -159,12 +160,18 @@ export default function Home(props) {
                           return <DatasetCard key={dataset.Title} {...dataset} />
                         })
                       }
+                      {datasetsPlus && filterDatasets(datasetsPlus).length == 0 &&
+                        <NoResultsText keywords={keywords} />
+                      }
                     </Tab.Pane>
                     <Tab.Pane eventKey="tables">
                       {tables && filterTables(tables).length > 0 &&
                         filterTables(tables).map(table => {
                           return <TableCard key={table.Title} {...table} />
                         })
+                      }
+                      {tables && filterTables(tables).length == 0 &&
+                        <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="columns">
@@ -191,6 +198,9 @@ export default function Home(props) {
                             })}
                           </tbody>
                         </Table>
+                      }
+                      {columns && filterColumns(columns).length == 0 &&
+                        <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="terms">
@@ -222,6 +232,9 @@ export default function Home(props) {
                             })}
                           </tbody>
                         </Table>
+                      }
+                      {terms && filterTerms(terms).length == 0 &&
+                        <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                   </Tab.Content>
