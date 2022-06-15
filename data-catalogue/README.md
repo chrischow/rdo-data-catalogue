@@ -46,7 +46,7 @@ Then, you'll need to make some tweaks in `index.html`:
 
 1. Comment out the manifest and the deferred script to the bundled JS file
 2. Copy the following into the bottom of the `<head>` tag:
-    - This will dynamically the folder for `index.html` and load the JS code in
+    - This will dynamically detect the directory (URL) for `index.html` and use that to load the JS code in
     - Remember to change `js-hash` to the actual hash for your file
 
     ```html
