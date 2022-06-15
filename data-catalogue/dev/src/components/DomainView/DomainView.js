@@ -20,7 +20,7 @@ export default function DomainView(props) {
     // Get datasets and tables
     getListItems(
       config.tableListId,
-      'Title,parentDataset/Title',
+      'Title,parentDataset/Id,parentDataset/Title',
       '',
       'parentDataset',
       setTables

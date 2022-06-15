@@ -39,7 +39,7 @@ export default function Home(props) {
     // Get tables
     getListItems(
       config.tableListId,
-      'Id,Title,tableDescription,updateFrequency,parentDataset/Title',
+      'Id,Title,tableDescription,updateFrequency,parentDataset/Id,parentDataset/Title',
       '',
       'parentDataset',
       setTables
@@ -57,7 +57,7 @@ export default function Home(props) {
     // Get terms
     getListItems(
       config.businessTermListId,
-      'Id,Title,definition,businessRules,source',
+      'Id,Title,definition,businessRules,Source',
       '',
       '',
       setTerms

@@ -25,7 +25,7 @@ export default function DatasetView(props) {
     // Get datasets and tables
     getListItems(
       config.tableListId,
-      'Id,Title,tableDescription,updateFrequency,parentDataset/Title',
+      'Id,Title,tableDescription,updateFrequency,parentDataset/Id,parentDataset/Title',
       `parentDataset/Id eq ${params.id}`,
       'parentDataset',
       setTables

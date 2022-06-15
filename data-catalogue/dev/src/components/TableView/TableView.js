@@ -30,7 +30,7 @@ export default function TableView(props) {
     // Get tables and columns
     getListItems(
       config.columnListId,
-      'Id,Title,columnDescription,dataType,businessRules,isPrimaryKey,isForeignKey,codeTable,relatedFactTable,parentTable/Title,businessTerm/Title',
+      'Id,Title,columnDescription,dataType,businessRules,isPrimaryKey,isForeignKey,codeTable,relatedFactTable,parentTable/Id,parentTable/Title,businessTerm/Id,businessTerm/Title',
       `parentTable/Id eq ${params.id}`,
       'parentTable,businessTerm',
       setColumns
@@ -38,7 +38,7 @@ export default function TableView(props) {
 
     getListItems(
       config.tableListId,
-      'Id,Title,tableDescription,updateFrequency,site,guid,parentDataset/Title',
+      'Id,Title,tableDescription,updateFrequency,site,guid0,parentDataset/Id,parentDataset/Title',
       `Id eq ${params.id}`,
       'parentDataset',
       extractTable
@@ -91,7 +91,7 @@ export default function TableView(props) {
             </tr>
             <tr>
               <td className="table-metadata--header infotable--cell">ID</td>
-              <td className="infotable--cell">{table.guid}</td>
+              <td className="infotable--cell">{table.guid0}</td>
             </tr>
             <tr>
               <td className="table-metadata--header infotable--cell">Dataset</td>

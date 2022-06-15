@@ -31,7 +31,7 @@ export default function BusinessTermView(props) {
     // Get business terms
     getListItems(
       config.businessTermListId,
-      'Id,Title,definition,businessRules,source',
+      'Id,Title,definition,businessRules,Source',
       '',
       '',
       extractTerm
@@ -40,7 +40,7 @@ export default function BusinessTermView(props) {
     // Get columns
     getListItems(
       config.columnListId,
-      'Id,Title,columnDescription,businessTerm/Title,parentTable/Title',
+      'Id,Title,columnDescription,businessTerm/Id,businessTerm/Title,parentTable/Id,parentTable/Title',
       `businessTerm/Id eq ${params.id}`,
       'businessTerm,parentTable',
       setSortColumns

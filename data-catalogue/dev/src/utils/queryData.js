@@ -9,8 +9,8 @@ export function getListItems(listId, selectStr, filterStr, expandStr, callback) 
   const output = $.ajax({
     url: `${apiUrl}web/Lists(guid'${listId}')/items?` +
       `$select=${selectStr}` +
-      `${filterStr ? '&$filter=' + filterStr : ''}` +
-      `${expandStr ? '&$expand=' + expandStr : ''}`,
+      `${expandStr ? '&$expand=' + expandStr : ''}` +
+      `${filterStr ? '&$filter=' + filterStr : ''}`,
     method: 'GET',
     headers: {
       'Accept': 'application/json; odata=nometadata'

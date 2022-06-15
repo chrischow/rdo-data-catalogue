@@ -21,7 +21,7 @@ export default function BusinessGlossaryView(props) {
   useEffect(() => {
     getListItems(
       config.businessTermListId,
-      'Id,Title,definition,businessRules,source',
+      'Id,Title,definition,businessRules,Source',
       '',
       '',
       setSortTerms
