@@ -90,6 +90,12 @@ cp dev/build/static/js/main.[js-hash].js prod-build/static/js/
 mv prod-build/static/js/main.[js-hash].js prod-build/static/js/main.[js-hash].txt
 ```
 
+Then, update the `js-hash` in the line in `index.html`:
+
+```js
+loadWords('main.[js-hash]', true)
+```
+
 Whether for the 1st time or subsequent builds, you may want to delete the CSS and JS files' reference to their map files. The references can be found at the last line of the respective CSS/JS files.
 
 ### 3. Amend `apiUrl` and `listIds`
