@@ -83,11 +83,11 @@ For subsequent builds, you will only need to copy over the CSS and JS files:
 ```bash
 
 # Copy files over
-cp dev/build/static/css/main.[css-hash].css build/static/css/
-cp dev/build/static/js/main.[js-hash].js build/static/js/
+cp dev/build/static/css/main.[css-hash].css prod-build/static/css/
+cp dev/build/static/js/main.[js-hash].js prod-build/static/js/
 
 # Change file extension
-mv build/static/js/main.[js-hash].js build/static/js/main.[js-hash].txt
+mv prod-build/static/js/main.[js-hash].js prod-build/static/js/main.[js-hash].txt
 ```
 
 Whether for the 1st time or subsequent builds, you may want to delete the CSS and JS files' reference to their map files. The references can be found at the last line of the respective CSS/JS files.
