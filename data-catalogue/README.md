@@ -8,6 +8,13 @@ RDO's Stack 2.0 solution for a data catalogue.
 4. Business Terms
 
 ## Build Steps
+The overall process is:
+
+1. Build the app using Create-React-App (CRA)
+2. Copy the necessary build files to the `prod-build` folder
+3. Amend the `apiUrl` and `listIds` used for testing to the actual ones
+
+### 1. Build the app using CRA
 In the `dev` folder, build the app:
 
 ```bash
@@ -15,13 +22,14 @@ cd dev
 npm run build
 ```
 
-Then, ensure you're in the data catalogue root folder `data-catalogue` before proceeding.
+### 2. Copy the necessary build files to the `prod-build` folder
+Ensure you're in the data catalogue root folder `data-catalogue` before proceeding.
 
 ```bash
 cd data-catalogue
 ```
 
-### 1st Time Only
+#### 1st Time Only
 For the 1st time you're creating the build in the `prod-build` folder, you will need to copy the entire build:
 
 ```bash
@@ -69,7 +77,7 @@ Then, you'll need to make some tweaks in `index.html`:
 
 3. Amend the path for the icons and CSS files from e.g. `href="/logo.png"` to `href="./logo.png"` to reference files in the same folder as `index.html`
 
-### Subsequent Builds
+#### Subsequent Builds
 For subsequent builds, you will only need to copy over the CSS and JS files:
 
 ```bash
@@ -81,3 +89,8 @@ cp dev/build/static/js/main.[js-hash].js build/static/js/
 # Change file extension
 mv build/static/js/main.[js-hash].js build/static/js/main.[js-hash].txt
 ```
+
+Whether for the 1st time or subsequent builds, you may want to delete the CSS and JS files' reference to their map files. The references can be found at the last line of the respective CSS/JS files.
+
+### 3. Amend `apiUrl` and `listIds`
+Inside the JS .txt file, do a simple find and replace to ensure that the `apiUrl` and `listIds` are the ones actually used in production. Note that searching `apiUrl` or `listId` will not return anything. You must search for the actual value of `apiUrl` (e.g. `http://127.0.0.1:5000/ravenpoint/_api/`) and replace that.
