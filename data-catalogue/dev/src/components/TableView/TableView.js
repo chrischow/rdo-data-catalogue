@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import TermPopover from '../TermPopover/TermPopover';
 import { BsTable, BsKeyFill } from 'react-icons/bs';
 import { FaDatabase } from 'react-icons/fa';
+import ColumnCard from '../ColumnCard/ColumnCard';
 import { getListItems } from '../../utils/queryData';
 import { config } from '../../config';
 import './TableView.css';
@@ -174,6 +175,18 @@ export default function TableView(props) {
               }
             </tbody>
           </Table>
+        </div>
+        <div className="mt-5">
+          {columns &&
+            columns.map(col => {
+              const termList = col.businessTerm;
+              for (let i=0; i < termList.length; i++) {
+                // console.log(termList[i]);
+                termList[i]['definition'] = terms.find(t => t.Id === termList[i].Id).definition;
+              }
+              return <ColumnCard key={`card-${col.Id}`} {...col} termList={termList} />
+            })
+          }
         </div>
       </div>
     </div>
