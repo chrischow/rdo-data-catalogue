@@ -1,0 +1,50 @@
+.columncard {
+  padding-bottom: 30px;
+  border-radius: 10px;
+  background-color: var(--light-grey-l6);
+  transition: 0.4s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.columncard:hover {
+  color: var(--dark-grey-d4);
+  background-color: var(--light-grey-l6);
+  transition: 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 29px;
+}
+
+.columncard--title-section {
+  border-radius: 10px 10px 0px 0px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  background-color: var(--dark-grey);
+  color: var(--light-grey-l4);
+}
+
+.columncard--body-section {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.columncard--title {
+  font-size: 1.3rem;
+}
+
+.columncard--tag {
+  background-color: var(--yellow-l2);
+  color: var(--yellow-d4);
+  font-size: 0.9rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 13px;
+}
+
+.columncard--section-header {
+  font-size: 0.9rem;
+  font-family: 'Segoe UI Light', sans-serif;
+  color: var(--dark-grey-l4);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
