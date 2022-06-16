@@ -15,7 +15,7 @@
 
 .columncard--title-section {
   border-radius: 10px 10px 0px 0px;
-  padding-top: 30px;
+  padding-top: 25px;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 10px;
@@ -48,3 +48,39 @@
   text-transform: uppercase;
   letter-spacing: 0.2rem;
 }
+
+.columncard--dq-header {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.1rem!important;
+}
+
+.columnview-switch {
+  display: inline-block;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background-color: var(--light-grey-l4);
+  transition: 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 7px 29px;
+}
+
+.columnview-switch-button {
+  color: var(--dark-grey);
+  transition: 0.4s;
+  padding: 5px 10px;
+}
+
+.columnview-switch-button:hover {
+  transition: 0.4s;
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.key-legend {
+  display: inline-block;
+  margin-bottom: 0!important;
+  padding-bottom: 0!important;
+}
+
