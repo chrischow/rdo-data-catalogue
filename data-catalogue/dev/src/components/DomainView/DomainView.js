@@ -58,9 +58,9 @@ export default function DomainView(props) {
         {props.dataDomain} Domain
       </h1>
 
-      <Container className="mt-5">
+      <div className="mt-5">
         <SearchBar placeholder="Search for datasets..." updateSearch={setKeywords} />
-      </Container>
+      </div>
 
       <Container className="mt-5">
         {metadata && filterDatasets(metadata, keywords).map((dataset) => {
