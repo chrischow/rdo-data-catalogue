@@ -60,7 +60,7 @@ export default function BusinessGlossaryView(props) {
                     </td>
                     <td>{term.definition}</td>
                     <td>{term.businessRules}</td>
-                    <td>{term.source}</td>
+                    <td>{term.Source}</td>
                   </tr>
                 );
               })}
