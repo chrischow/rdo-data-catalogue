@@ -178,6 +178,13 @@ table {
   font-size: 1.1rem;
 }
 
+.table-dark, .thead-dark {
+  --bs-table-bg: var(--dark-grey)!important;
+  --bs-table-striped-bg: var(--dark-grey)!important;
+  --bs-table-active-bg: var(--dark-grey)!important;
+  --bs-table-hover-bg: var(--dark-grey)!important;
+  border-color: var(--dark-grey)!important;
+}
 
 /* Center checkbox */
 .form-check-inline .form-check-input {
@@ -243,4 +250,56 @@ a.term-link {
 a.term-link:hover {
   color: var(--dark-grey-l5);
   transition: 0.3s;
+}
+
+/* Amendments to accordion style */
+button.accordion-button.collapsed {
+  background-color: inherit!important;
+  padding: 0!important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--light-grey-l6)!important;
+  color: inherit!important;
+  padding: 0!important;
+}
+
+.accordion, .accordion-item, .accordion-header {
+  background-color: inherit!important;
+}
+
+.accordion-button::after {
+  margin-right: auto!important;
+  margin-left: 10px!important;
+  margin-bottom: 5px!important;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23212529%27%3e%3cpath fill-rule=%27evenodd%27 d=%27M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e")!important;
+}
+
+.accordion-body {
+  padding: 0!important;
+}
+
+/* Override for pills */
+.nav-pills .columnview-switch-button.nav-link.active {
+  background-color: var(--dark-grey);
+}
+
+.columnview-switch-button.nav-link {
+  color: var(--light-grey-d3);
+}
+
+.columnview-switch-button.nav-link:hover {
+  color: var(--dark-grey-l5);
+  background-color: var(--light-grey-l4)
+}
+
+.columnview-switch-button.switch-right.nav-link {
+  border-radius: 0px 10px 10px 0px
+}
+
+.columnview-switch-button.switch-left.nav-link {
+  border-radius: 10px 0px 0px 10px
 }
