@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { BsTable } from 'react-icons/bs';
+import './TableCard.css';
 
 export default function TableCard(props) {
   // Function to link to page
