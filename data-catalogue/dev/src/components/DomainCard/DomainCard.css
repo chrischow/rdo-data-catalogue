@@ -27,11 +27,11 @@
   font-family: 'Segoe UI', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  color: var(--green-d1);
+  color: var(--green-d2);
   transition: 0.4s;
 }
 
 .domain-card:hover > .domain-card--subtitle {
-  color: var(--green-d3);
+  color: var(--green-d4);
   transition: 0.4s;
 }
