@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { BiHash } from 'react-icons/bi';
+import './TermPopover.css';
 
 export default function TermPopover(props) {
   return (
@@ -17,9 +18,11 @@ export default function TermPopover(props) {
         </Popover>
       }
     >
-      <Link className="term-link d-flex align-items-center" to={`/term/${props.Id}`}>
-        <BiHash style={{ marginRight: '1px' }} />
-        {props.Title}
+      <Link className="term-link" to={`/term/${props.Id}`} style={{display: 'inline-block'}}>
+        <div className="d-flex align-items-center">
+          <BiHash style={{ marginRight: '1px' }} />
+          <span className="termpopover--keyword">{props.Title}</span>
+        </div>
       </Link>
     </OverlayTrigger>
   );
