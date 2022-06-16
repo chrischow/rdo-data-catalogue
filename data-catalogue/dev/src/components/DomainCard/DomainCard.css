@@ -1,36 +1,37 @@
 .domain-card {
   border-radius: 10px;
-  background-color: var(--dark-grey);
-  color: var(--light-grey-l3);
-  padding: 20px;
+  color: var(--dark-grey);
+  background-color: var(--light-grey-l6);
+  padding: 30px;
   transition: 0.4s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .domain-card:hover {
   cursor: pointer;
-  background-color: var(--dark-grey-l2);
-  color: var(--light-grey-l5);
+  color: var(--dark-grey-d4);
+  background-color: var(--light-grey-l6);
   transition: 0.4s;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 7px 29px;
 }
 
 .domain-card--title {
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  letter-spacing: 0.3rem;
+  font-family: 'Segoe UI', sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
 }
 
 .domain-card--subtitle {
   font-size: 0.9rem;
-  font-family: 'Segoe UI Light';
+  font-family: 'Segoe UI', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
-  color: var(--green-d2);
+  color: var(--green-d1);
   transition: 0.4s;
 }
 
 .domain-card:hover > .domain-card--subtitle {
-  color: var(--green);
+  color: var(--green-d3);
   transition: 0.4s;
 }
