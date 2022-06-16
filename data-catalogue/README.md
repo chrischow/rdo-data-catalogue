@@ -1,5 +1,6 @@
 # Data Catalogue
-RDO's Stack 2.0 solution for a data catalogue.
+RDO's Stack 2.0 solution for a data catalogue. Check out a live demo with no data [here](https://chrischow.github.io/rdo-data-platform/data-catalogue/prod-build/index.html).
+
 
 <p>
   <img src="https://badges.aleen42.com/src/javascript.svg">
