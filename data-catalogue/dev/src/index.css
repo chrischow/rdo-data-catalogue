@@ -67,6 +67,19 @@
   --red-l3: #ff8e99;
   --red-l4: #ffa1ab;
   --red-l5: #ffb5bc;
+
+  /* Yellow */
+  --yellow-d5: #534305;
+  --yellow-d4: #786108;
+  --yellow-d3: #9D7F0A;
+  --yellow-d2: #C29D0D;
+  --yellow-d1: #E6BA0F;
+  --yellow: #F0C419!important;
+  --yellow-l1: #F2CD3E;
+  --yellow-l2: #F5D763;
+  --yellow-l3: #f7e087;
+  --yellow-l4: #FAEAAC;
+  --yellow-l5: #FCF3D1;
 }
 
 .btn-green {
