@@ -69,9 +69,12 @@ Then, you'll need to make some tweaks in `index.html`:
 3. Amend the path for the icons and CSS files from e.g. `href="/logo.png"` to `href="./logo.png"` to reference files in the same folder as `index.html`
 
 ### Subsequent Builds
-For subsequent builds, you will only need to copy over the CSS and JS files:
+For subsequent builds, you will only need to remove the old CSS and JS files and copy the new ones over:
 
 ```bash
+# Copy files over
+rm prod-build/static/css/main.[old-css-hash].css
+rm prod-build/static/js/main.[old-js-hash].js
 
 # Copy files over
 cp dev/build/static/css/main.[css-hash].css prod-build/static/css/
@@ -81,11 +84,19 @@ cp dev/build/static/js/main.[js-hash].js prod-build/static/js/
 mv prod-build/static/js/main.[js-hash].js prod-build/static/js/main.[js-hash].txt
 ```
 
-Then, update the `js-hash` in the line in `index.html`:
+Then, update the hashes in the following lines in `index.html`:
 
-```js
-loadWords('main.[js-hash]', true)
-```
+- Stylesheet reference in `<head>`:
+
+  ```html
+  <link href="./static/css/main.[css-hash].css" rel="stylesheet">
+  ```
+
+- Line in script:
+
+  ```js
+  loadWords('main.[js-hash]', true)
+  ```
 
 Whether for the 1st time or subsequent builds, you may want to delete the CSS and JS files' reference to their map files. The references can be found at the last line of the respective CSS/JS files.
 
