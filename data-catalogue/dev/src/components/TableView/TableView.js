@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import TermPopover from '../TermPopover/TermPopover';
 import { BsTable, BsKeyFill } from 'react-icons/bs';
 import { FaDatabase } from 'react-icons/fa';
@@ -106,7 +108,27 @@ export default function TableView(props) {
       </div>
 
       <div className="mt-5">
-        <h2>Columns</h2>
+        <Row className="justify-content-between">
+          <Col xs={8}>
+            <h2>Columns</h2>
+          </Col>
+          <Col xs={3}>
+            <div className="text-right">
+              <table style={{display: 'inline-block', float: 'right'}}>
+                <tbody>
+                  <tr>
+                    <td width="40px"><BsKeyFill alt="Primary Key" style={{ color: '#F0C419', marginLeft: '7px' }} /></td>
+                    <td><small>Primary Key</small></td>
+                  </tr>
+                  <tr>
+                    <td width="40px"><BsKeyFill alt="Primary Key" style={{ color: '#FF5364', marginLeft: '7px' }} /></td>
+                    <td><small>Foreign Key</small></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Col>
+        </Row>
         <div className="mt-4">
           <Table striped responsive className="table column-table">
             <thead className="table-dark">
@@ -120,7 +142,7 @@ export default function TableView(props) {
               </tr>
             </thead>
             <tbody>
-              {columns && terms &&
+              {columns && (terms.length > 0) &&
                 columns.map(col => {
                   const termList = col.businessTerm;
                   for (let i=0; i < termList.length; i++) {
