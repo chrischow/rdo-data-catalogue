@@ -43,7 +43,7 @@ The table view lists all columns with two view options: (1) tables and (2) cards
 
 #### Table View: Cards
 
-![](./docs/images/ss_datacatalogue_table_table.jpg)
+![](./docs/images/ss_datacatalogue_table_cards.jpg)
 
 #### Business Glossary
 The business glossary view lists all terms. It allows users to run searches to filter the list in real-time.
