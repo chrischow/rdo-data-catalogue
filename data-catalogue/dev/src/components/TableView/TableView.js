@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
-import { BiHash } from 'react-icons/bi';
+import TermPopover from '../TermPopover/TermPopover';
 import { BsTable, BsKeyFill } from 'react-icons/bs';
 import { FaDatabase } from 'react-icons/fa';
 import { getListItems } from '../../utils/queryData';
@@ -47,13 +45,14 @@ export default function TableView(props) {
 
   useEffect(() => {
     if (columns) {
+      
       // Function to extract correct terms
-      const filterAndSaveTerms = (arr) => {
-        const filteredTerms = arr.filter(item => {
-          return columns.map(column => column.businessTerm_Id).includes(item.Id)
-        });
-        setTerms(filteredTerms);
-      };
+      // const filterAndSaveTerms = (arr) => {
+      //   const filteredTerms = arr.filter(item => {
+      //     return columns.map(column => column.businessTerm_Id).includes(item.Id)
+      //   });
+      //   setTerms(filteredTerms);
+      // };
 
       // Get business terms
       getListItems(
@@ -61,7 +60,7 @@ export default function TableView(props) {
         'Id,Title,definition,businessRules,source',
         '',
         '',
-        filterAndSaveTerms
+        setTerms
       );
     }
   }, [columns])
@@ -121,50 +120,31 @@ export default function TableView(props) {
               </tr>
             </thead>
             <tbody>
-              {columns &&
+              {columns && terms &&
                 columns.map(col => {
-                  let term = '';
-                  if (terms) {
-                    term = terms.find(t => t.Title == col.businessTerm_Title);
-                  } else {
-                    term = {definition: 'Not found.'};
+                  const termList = col.businessTerm;
+                  for (let i=0; i < termList.length; i++) {
+                    // console.log(termList[i]);
+                    termList[i]['definition'] = terms.find(t => t.Id === termList[i].Id).definition;
                   }
                   return (
                     <tr key={col.Title}>
                       <td>
                         {col.Title}
                         {col.isPrimaryKey ?
-                        <BsKeyFill alt="Primary Key" style={{ color: '#F0C419', marginLeft: '7px' }} /> :
-                        ''}
+                          <BsKeyFill alt="Primary Key" style={{ color: '#F0C419', marginLeft: '7px' }} /> :
+                          ''}
                         {col.isForeignKey ?
-                        <BsKeyFill alt="Foreign Key" style={{ color: '#FF5364', marginLeft: '7px' }} /> :
-                        ''}
+                          <BsKeyFill alt="Foreign Key" style={{ color: '#FF5364', marginLeft: '7px' }} /> :
+                          ''}
                       </td>
                       <td>{col.columnDescription}</td>
                       <td className="datatype-cell">{col.dataType}</td>
                       <td>{col.businessRules}</td>
-                      {/* <td>
-                        {col.isForeignKey ? <TiTick /> : ''}
-                      </td> */}
                       <td>
-                      <OverlayTrigger
-                        trigger={['hover', 'focus']}
-                        key={`trigger-${col.Id}`}
-                        placement="left"
-                        overlay={
-                          <Popover id={`popover-${col.Id}`}>
-                            <Popover.Header><span className="tableview--def-header">Definition</span></Popover.Header>
-                            <Popover.Body>
-                              <span>{term && term.definition}</span>
-                            </Popover.Body>
-                          </Popover>
-                        }
-                      >
-                        <Link className="term-link d-flex align-items-center" to={`/term/${col.businessTerm_Id}`}>
-                          <BiHash style={{ marginRight: '1px' }} />
-                          {col.businessTerm_Title}
-                        </Link>
-                      </OverlayTrigger>
+                        {termList.length > 0 && termList.map(term => {
+                          return <TermPopover key={`popover-${col.Id}-${term.Id}`} {...term} />
+                        })}
                       </td>
                     </tr>
                   );
