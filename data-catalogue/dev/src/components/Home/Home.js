@@ -78,6 +78,12 @@ export default function Home(props) {
     }
   }, [tables, datasets]);
 
+  // Filter data
+  const filteredDatasets = filterDatasets(datasetsPlus, keywords);
+  const filteredTables = filterTables(tables, keywords);
+  const filteredColumns = filterColumns(columns, keywords);
+  const filteredTerms = filterTerms(terms, keywords);
+
   return (
     <Container>
       <div>
@@ -102,7 +108,7 @@ export default function Home(props) {
               );
             })
           }
-          {datasetsPlus && keywords != '' &&
+          {datasetsPlus && keywords !== '' &&
             <>
               <Tab.Container id="search-results-tabs" defaultActiveKey="datasets">
                 <Nav className="justify-content-center" defaultActiveKey="datasets">
@@ -122,27 +128,27 @@ export default function Home(props) {
                 <div className="mt-4">
                   <Tab.Content>
                     <Tab.Pane eventKey="datasets">
-                      {datasetsPlus && filterDatasets(datasetsPlus, keywords).length > 0 &&
-                        filterDatasets(datasetsPlus, keywords).map(dataset => {
+                      {datasetsPlus && filteredDatasets.length > 0 &&
+                        filteredDatasets.map(dataset => {
                           return <DatasetCard key={dataset.Title} {...dataset} />
                         })
                       }
-                      {datasetsPlus && filterDatasets(datasetsPlus, keywords).length == 0 &&
+                      {datasetsPlus && filteredDatasets.length === 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="tables">
-                      {tables && filterTables(tables, keywords).length > 0 &&
-                        filterTables(tables, keywords).map(table => {
+                      {tables && filteredTables.length > 0 &&
+                        filteredTables.map(table => {
                           return <TableCard key={table.Title} {...table} />
                         })
                       }
-                      {tables && filterTables(tables, keywords).length == 0 &&
+                      {tables && filteredTables.length === 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="columns">
-                      {columns && filterColumns(columns, keywords).length > 0 &&
+                      {columns && filteredColumns.length > 0 &&
                         <Table striped responsive className="table column-table">
                           <thead className="strong">
                             <tr>
@@ -153,7 +159,7 @@ export default function Home(props) {
                             </tr>
                           </thead>
                           <tbody>
-                            {filterColumns(columns, keywords).map(column => {
+                            {filteredColumns.map(column => {
                               return (
                                 <tr key={column.Id}>
                                   <td>{column.Title}</td>
@@ -166,12 +172,12 @@ export default function Home(props) {
                           </tbody>
                         </Table>
                       }
-                      {columns && filterColumns(columns, keywords).length == 0 &&
+                      {columns && filteredColumns.length === 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>
                     <Tab.Pane eventKey="terms">
-                      {terms && filterTerms(terms, keywords).length > 0 &&
+                      {terms && filteredTerms.length > 0 &&
                         <Table striped responsive className="table column-table">
                           <thead className="strong">
                             <tr>
@@ -182,7 +188,7 @@ export default function Home(props) {
                             </tr>
                           </thead>
                           <tbody>
-                            {filterTerms(terms, keywords).map(term => {
+                            {filteredTerms.map(term => {
                               return (
                                 <tr key={term.Id}>
                                   <td>
@@ -200,7 +206,7 @@ export default function Home(props) {
                           </tbody>
                         </Table>
                       }
-                      {terms && filterTerms(terms, keywords).length == 0 &&
+                      {terms && filteredTerms.length === 0 &&
                         <NoResultsText keywords={keywords} />
                       }
                     </Tab.Pane>

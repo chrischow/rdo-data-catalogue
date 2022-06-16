@@ -49,20 +49,19 @@ export default function TableView(props) {
       'parentDataset',
       extractTable
     );
-  }, []);
 
-  useEffect(() => {
-    if (columns) {
-      // Get business terms
-      getListItems(
-        config.businessTermListId,
-        'Id,Title,definition,businessRules,source',
-        '',
-        '',
-        setTerms
-      );
-    }
-  }, [columns])
+    // Get business terms
+    getListItems(
+      config.businessTermListId,
+      'Id,Title,definition,businessRules,source',
+      '',
+      '',
+      setTerms
+    );
+  }, [params.id]);
+
+  // Filter columns
+  const filteredColumns = filterColumns(columns, keywords);
 
   return (
     <div>
@@ -161,7 +160,7 @@ export default function TableView(props) {
                     </thead>
                     <tbody>
                       {columns && (terms.length > 0) &&
-                        filterColumns(columns, keywords).map(col => {
+                        filteredColumns.map(col => {
                           const termList = col.businessTerm;
                           for (let i=0; i < termList.length; i++) {
                             let currentTerm = terms.find(t => t.Id === termList[i].Id);
@@ -196,7 +195,7 @@ export default function TableView(props) {
 
                 <Tab.Pane eventKey="cards">
                 {columns &&
-                  filterColumns(columns, keywords).map(col => {
+                  filteredColumns.map(col => {
                     const termList = col.businessTerm;
                     for (let i=0; i < termList.length; i++) {
                       let currentTerm = terms.find(t => t.Id === termList[i].Id);
@@ -217,7 +216,7 @@ export default function TableView(props) {
 
 
         <div className="mt-5">
-          {columns.length > 0 && filterColumns(columns, keywords).length === 0 &&
+          {columns.length > 0 && filteredColumns.length === 0 &&
             <div className="text-center">
               <h4 style={{ fontWeight: 'normal' }}>No results match your search criteria "<em>{keywords}</em>".</h4>
             </div>

@@ -51,6 +51,9 @@ export default function DomainView(props) {
     }
   }, [tables, datasets]);
 
+  // Filter datasets
+  const filteredDatasets = filterDatasets(metadata, keywords);
+
   return (
     <div>
       <h1 className="home--title text-center d-flex align-items-center justify-content-center">
@@ -63,13 +66,13 @@ export default function DomainView(props) {
       </div>
 
       <Container className="mt-5">
-        {metadata && filterDatasets(metadata, keywords).map((dataset) => {
+        {metadata && filteredDatasets.map((dataset) => {
             return (
               <DatasetCard key={dataset.Title} {...dataset} />
             );
           })
         }
-        {metadata.length > 0 && filterDatasets(metadata, keywords).length === 0 &&
+        {metadata.length > 0 && filteredDatasets.length === 0 &&
           <div className="text-center">
             <h4 style={{ fontWeight: 'normal' }}>No results match your search criteria "<em>{keywords}</em>".</h4>
           </div>
