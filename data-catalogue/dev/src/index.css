@@ -262,6 +262,7 @@ button.accordion-button.collapsed {
   background-color: var(--light-grey-l6)!important;
   color: inherit!important;
   padding: 0!important;
+  padding-bottom: 10px!important;
 }
 
 .accordion, .accordion-item, .accordion-header {
