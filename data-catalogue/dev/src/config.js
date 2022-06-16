@@ -5,3 +5,14 @@ export const config = {
   columnListId: 'c82cc553edae91adc412ab2723541399',
   businessTermListId: 'c6a79398bf823d2ea393494dba127f7b'
 }
+
+// const fullUrl = window.location.origin + window.location.pathname + '/';
+// let config2_raw;
+// fetch(fullUrl + 'config.txt')
+//   .then(res => res.text())
+//   .then((data) => {
+//     config2_raw = JSON.parse(JSON.stringify(data))
+//     console.log(config2_raw);
+//   });
+
+// export const config2 = config2_raw;
