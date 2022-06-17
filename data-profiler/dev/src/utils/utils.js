@@ -76,7 +76,7 @@ export const contains = (data, val) => {
   if (val.includes(';')) {
     var arrStr = val.replace('; ', ';');
     arrStr = arrStr.replace(' ;', ';');
-    const arr = arrStr.split(';');
+    let arr = arrStr.split(';');
     arr = arr.filter(elem => elem !== null && elem !== '');
     score = data.reduce( (a,b) => {
       return a + (arr.includes(b) ? 1 : 0);

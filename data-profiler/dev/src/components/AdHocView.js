@@ -17,8 +17,8 @@ import {
 
 export default function AdHocView(props) {
   // State:
-  // - data: Columns and array of objects
-  // - featureColumns: object with columns as keys
+  // - data: object with (1) array of columns and (2) array of objects (data)
+  // - featureColumns: object with columns as keys, and (a) data array and (b) metadata as values
   const [data, setData] = useState({});
   const [metadata, setMetadata] = useState({});
   const [featureColumns, setFeatureColumns] = useState({});
