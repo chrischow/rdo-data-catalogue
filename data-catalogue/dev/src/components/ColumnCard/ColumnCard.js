@@ -1,10 +1,10 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Accordion from 'react-bootstrap/Accordion';
+// import Accordion from 'react-bootstrap/Accordion';
 import { BsKeyFill } from 'react-icons/bs';
 import { FiColumns } from 'react-icons/fi';
 import TermPopover from '../TermPopover/TermPopover';
-import DqScoreColumn from '../DqScoreColumn/DqScoreColumn';
+// import DqScoreColumn from '../DqScoreColumn/DqScoreColumn';
 import './ColumnCard.css';
 
 export default function ColumnCard(props){
@@ -55,7 +55,7 @@ export default function ColumnCard(props){
             })}
           </Col>
         </Row>
-        <Accordion flush className="mt-3">
+        {/* <Accordion flush className="mt-3">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               <h5 className="columncard--dq-header">Data Quality Scores</h5>
@@ -68,7 +68,7 @@ export default function ColumnCard(props){
               </Row>
             </Accordion.Body>
           </Accordion.Item>
-        </Accordion>
+        </Accordion> */}
       </div>
     </div>
   );
