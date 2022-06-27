@@ -27,10 +27,16 @@ For the 1st time you're creating the build in the `prod-build` folder, you will 
 cp dev/build/* prod-build/
 ```
 
-Change the JS file extension:
+Change the JS file extension and name:
 
 ```bash
-mv prod-build/static/js/main.[js-hash].js prod-build/static/js/main.[js-hash].txt
+mv prod-build/static/js/main.[js-hash].js prod-build/static/js/main.txt
+```
+
+For ease of subsequent builds, also change the CSS file name:
+
+```bash
+mv prod-build/static/css/main.[css-hash].css prod-build/static/css/main.css
 ```
 
 Then, you'll need to make some tweaks in `index.html`:
@@ -62,41 +68,21 @@ Then, you'll need to make some tweaks in `index.html`:
         xhr.send();
       }
       
-      loadWords('main.[js-hash]', true)
+      loadWords('main', true)
     </script>
     ```
 
-3. Amend the path for the icons and CSS files from e.g. `href="/logo.png"` to `href="./logo.png"` to reference files in the same folder as `index.html`
+3. Amend the reference for the CSS file i.e. `main.css`
+4. Amend the path for the icons and CSS files from e.g. `href="/logo.png"` to `href="./logo.png"` to reference files in the same folder as `index.html`
 
 ### Subsequent Builds
 For subsequent builds, you will only need to remove the old CSS and JS files and copy the new ones over:
 
 ```bash
 # Copy files over
-rm prod-build/static/css/main.[old-css-hash].css
-rm prod-build/static/js/main.[old-js-hash].js
-
-# Copy files over
-cp dev/build/static/css/main.[css-hash].css prod-build/static/css/
-cp dev/build/static/js/main.[js-hash].js prod-build/static/js/
-
-# Change file extension
-mv prod-build/static/js/main.[js-hash].js prod-build/static/js/main.[js-hash].txt
+cp dev/build/static/css/main.[css-hash].css prod-build/static/css/main.css
+cp dev/build/static/js/main.[js-hash].js prod-build/static/js/main.txt
 ```
-
-Then, update the hashes in the following lines in `index.html`:
-
-- Stylesheet reference in `<head>`:
-
-  ```html
-  <link href="./static/css/main.[css-hash].css" rel="stylesheet">
-  ```
-
-- Line in script:
-
-  ```js
-  loadWords('main.[js-hash]', true)
-  ```
 
 Whether for the 1st time or subsequent builds, you may want to delete the CSS and JS files' reference to their map files. The references can be found at the last line of the respective CSS/JS files.
 
