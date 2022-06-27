@@ -3,11 +3,6 @@ import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import './NavBar.css';
 
 export default function NavBar(props) {
-    const navLinks = props.pages.map(function (item) {
-        return (
-            <NavLink key={item.slug} className="nav-link" to={"/" + item.slug}>{item.pageName}</NavLink>
-        );
-    });
 
     const dropdownLinks = props.dataDomains.map( (item) => {
         return (
@@ -24,10 +19,12 @@ export default function NavBar(props) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end ml-auto" id="basic-navbar-nav">
                     <Nav>
-                        {navLinks}
+                        <NavLink className="nav-link" to="/">Home</NavLink>
                         <NavDropdown title="Domains" id="domain-dropdown">
                             {dropdownLinks}
                         </NavDropdown>
+                        <NavLink className="nav-link" to="/business-glossary">Business Glossary</NavLink>
+                        <NavLink className="nav-link" to="/data-quality-assessment">Data Quality Assessment</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
