@@ -16,9 +16,9 @@ RDO's Stack 2.0 solution for a data catalogue. Check out a live demo with no dat
 
 ```mermaid
 erDiagram
-  Dataset ||--|{ Table
-  Table ||--|{ Column
-  Business Term ||--|{ Column
+  Dataset ||--|{ Table : contains
+  Table ||--|{ Column : contains
+  Business-Term ||--|{ Column : tagged to
   Dataset {
     int Id PK
     string Title
@@ -49,7 +49,7 @@ erDiagram
     string relatedFactTable "SharePoint GUID of fact table"
     string businessTerm FK "Multi-valued lookup to business terms"
   }
-  Business Term {
+  Business-Term {
     int Id PK
     string Title
     string definition
