@@ -14,11 +14,13 @@ RDO's Stack 2.0 solution for a data catalogue. Check out a live demo with no dat
 3. Columns - grouped by Tables
 4. Business Terms
 
+ERD:
+
 ```mermaid
 erDiagram
   Dataset ||--|{ Table : contains
   Table ||--|{ Column : contains
-  Business-Term ||--|{ Column : tagged to
+  Business-Term ||--|{ Column : "tagged to"
   Dataset {
     int Id PK
     string Title
