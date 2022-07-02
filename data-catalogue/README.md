@@ -14,6 +14,50 @@ RDO's Stack 2.0 solution for a data catalogue. Check out a live demo with no dat
 3. Columns - grouped by Tables
 4. Business Terms
 
+```mermaid
+erDiagram
+  Dataset ||--|{ Table
+  Table ||--|{ Column
+  Business Term ||--|{ Column
+  Dataset {
+    int Id PK
+    string Title
+    string useCases
+    string owner
+    string pointOfContact
+    string dataDomain
+  }
+  Table {
+    int Id PK
+    string Title
+    string tableDescription
+    string updateFrequency
+    int parentDataset FK "Dataset"
+    string site
+    string guid0
+  }
+  Column {
+    int Id PK
+    string Title
+    string columnDescription
+    string dataType
+    string businessRules
+    int parentTable FK "Table"
+    bool isPrimaryKey
+    bool isForeignKey
+    string codeTable "SharePoint GUID of code table"
+    string relatedFactTable "SharePoint GUID of fact table"
+    string businessTerm FK "Multi-valued lookup to business terms"
+  }
+  Business Term {
+    int Id PK
+    string Title
+    string definition
+    string businessRules
+    string Source
+  }
+```
+
 #### Home
 
 ![](./docs/images/ss_datacatalogue_home.jpg)
