@@ -62,7 +62,7 @@ export default function TableView(props) {
 
   // Filter columns
   const filteredColumns = filterColumns(columns, keywords);
-
+  console.log(columns);
   return (
     <div>
       {table &&

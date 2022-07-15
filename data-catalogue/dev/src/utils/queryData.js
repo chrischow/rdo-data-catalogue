@@ -23,10 +23,10 @@ export function getListItems(listId, selectStr, filterStr, expandStr, callback) 
         expandColumns.forEach(column => {
           // Elevate single lookup fields only
           if (!(expandedData[0][column] instanceof Array)) {
-            for (let i=0; i < expandedData.length; i++) {
-              expandedData[i][`${column}_Id`] = expandedData[i][column].Id;
-              expandedData[i][`${column}_Title`] = expandedData[i][column].Title;
-              delete expandedData[i][column];
+            for (const element of expandedData) {
+              element[`${column}_Id`] = element[column].Id;
+              element[`${column}_Title`] = element[column].Title;
+              delete element[column];
             }
           }
         });

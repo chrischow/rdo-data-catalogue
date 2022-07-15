@@ -10,7 +10,7 @@ import './DatasetView.css';
 export default function DatasetView(props) {
   // Get ID
   const params = useParams();
-
+  
   // Set state
   const [tables, setTables] = useState([]);
   const [dataset, setDataset] = useState([]);
