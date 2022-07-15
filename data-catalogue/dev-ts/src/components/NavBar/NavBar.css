@@ -1,0 +1,4 @@
+.dropdown-item:active {
+  background-color: var(--dark-grey-l5)!important;
+  transition: 0.3s;
+}

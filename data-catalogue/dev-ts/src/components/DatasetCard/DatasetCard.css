@@ -1,0 +1,30 @@
+h5.datasetcard--title {
+  font-size: 1.7rem;
+}
+
+.datasetcard--card {
+  border-radius: 10px;
+  background-color: var(--light-grey-l5);
+  padding: 30px;
+  transition: 0.4s;
+}
+
+.datasetcard--card:hover {
+  background-color: var(--light-grey-l4);
+  transition: 0.4s;
+  box-shadow: rgba(100, 100, 111, 0.15) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+
+.datasetcard--icon {
+  color: var(--blue)!important;
+}
+
+.datasetcard--tag {
+  background-color: var(--purple-l5);
+  color: var(--purple-d2);
+  font-size: 0.9rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 13px;
+}

@@ -1,0 +1,8 @@
+.tablecard--tag {
+  background-color: var(--green-l5);
+  color: var(--green-d5);
+  font-size: 0.9rem;
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 13px;
+}

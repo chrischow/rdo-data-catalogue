@@ -1,0 +1,45 @@
+.home--title {
+  font-size: 3rem;
+}
+
+.search-results--tab {
+  color: var(--purple-l3) !important;
+  transition: 0.3s;
+}
+
+.search-results--tab:hover,
+.nav-link .search-results--tab:active,
+.nav-link .search-results--tab .active {
+  color: var(--purple) !important;
+  transition: 0.3s;
+}
+
+.nav-link {
+  border-radius: 0;
+  transition: 0.4s;
+  position: relative;
+}
+
+.nav-link.search-results--tab::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--purple);
+  transform: scaleX(0);
+  transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link.search-results--tab.active {
+  background-color: transparent;
+  border-bottom: 1px solid var(--purple);
+  color: var(--purple)!important;
+  transition: 0.4s;
+}

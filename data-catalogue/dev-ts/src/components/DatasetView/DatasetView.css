@@ -1,0 +1,13 @@
+.datasetview--title {
+  font-size: 2.7rem;
+}
+
+.dataset-metadata--header {
+  background-color: var(--purple)!important;
+  color: white;
+}
+
+.infotable--cell {
+  padding-left: 15px!important;
+  padding-right: 15px!important;
+}
