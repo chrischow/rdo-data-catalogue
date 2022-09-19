@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Table from 'react-bootstrap/Table';
-import { BiHash } from 'react-icons/bi';
-import { DomainCard } from '../DomainCard/DomainCard';
-import { SearchBar } from '../SearchBar/SearchBar';
-import { NoResultsText } from '../NoResultsText/NoResultsText';
-import { filterDatasets, filterTables, filterColumns, filterTerms, DatasetSchema, TableSchema, ColumnSchema, BusinessTermSchema } from '../../shared/utils';
 import { useDatasets } from '../../shared/hooks/useDatasets';
 import { useTables } from '../../shared/hooks/useTables';
 import { useColumns } from '../../shared/hooks/useColumns';
 import { useTerms } from '../../shared/hooks/useTerms';
-import './Home.css';
+import { DomainCard } from '../DomainCard/DomainCard';
+import { filterDatasets, filterTables, filterColumns, filterTerms, DatasetSchema, TableSchema, ColumnSchema, BusinessTermSchema } from '../../shared/utils';
+import { SearchBar } from '../SearchBar/SearchBar';
 import { HomeTabPaneCards, HomeTabPaneTable } from '../HomeTabPane/HomeTabPane';
+import './Home.css';
 
 interface HomeProps {
   dataDomains: string[];

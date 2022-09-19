@@ -1,10 +1,10 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { BiHash } from 'react-icons/bi';
-import './TermPopover.css';
 import { BusinessTermSchema } from '../../shared/utils';
-import React from 'react';
+import './TermPopover.css';
 
 interface TermPopoverProps extends BusinessTermSchema {
   colId?: number;

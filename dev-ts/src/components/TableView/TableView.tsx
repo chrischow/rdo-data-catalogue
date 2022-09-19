@@ -8,13 +8,13 @@ import Tab from 'react-bootstrap/Tab';
 import { BsTable, BsKeyFill } from 'react-icons/bs';
 import { BiColumns, BiCard } from 'react-icons/bi';
 import { FaDatabase } from 'react-icons/fa';
-import { TermPopover } from '../TermPopover/TermPopover';
-import { ColumnCard } from '../ColumnCard/ColumnCard';
-import { SearchBar } from '../SearchBar/SearchBar';
 import { useColumnsByTable } from '../../shared/hooks/useColumns';
 import { useTable } from '../../shared/hooks/useTables';
 import { useTerms } from '../../shared/hooks/useTerms';
 import { BusinessTermSchema, filterColumns, TableSchema } from '../../shared/utils';
+import { TermPopover } from '../TermPopover/TermPopover';
+import { ColumnCard } from '../ColumnCard/ColumnCard';
+import { SearchBar } from '../SearchBar/SearchBar';
 import './TableView.css';
 
 export const TableView: React.FC = () => {

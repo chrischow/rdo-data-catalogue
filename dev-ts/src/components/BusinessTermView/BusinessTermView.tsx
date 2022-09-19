@@ -3,11 +3,11 @@ import { Link, useParams } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import { BiHash } from 'react-icons/bi';
 import { BsTable } from 'react-icons/bs';
-
-import './BusinessTermView.css';
 import { useTerm } from '../../shared/hooks/useTerms';
 import { useColumnsByTerm } from '../../shared/hooks/useColumns';
 import { ColumnSchema } from '../../shared/utils';
+
+import './BusinessTermView.css';
 
 
 export const BusinessTermView: React.FC = () => {

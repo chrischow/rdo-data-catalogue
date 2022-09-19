@@ -1,8 +1,8 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaDatabase } from 'react-icons/fa';
 import { DatasetSchema } from '../../shared/utils';
 import './DatasetCard.css';
-import React from 'react';
 
 interface DatasetCardProps extends DatasetSchema {
   key: string;
