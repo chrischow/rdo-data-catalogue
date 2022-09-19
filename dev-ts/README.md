@@ -72,7 +72,7 @@ The `src` directory is set up to mimic the component dependency tree as closely 
 In the diagrams below, each folder contains `index.js`, and sometimes, also `styles.css`. We omit these files from the diagram for simplicity. Cells in purple are shared components.
 
 ```mermaid
-graph LR
+graph TD
   %% Top level components
   Root --> NavBar
   Root --> Home
@@ -125,6 +125,18 @@ graph LR
 #### 1. `Home`
 This component displays the available data domains as cards, and provides a search bar that, when filled in, replaces the cards with tabs for (1) Datasets, (2) Tables, (3) Columns, and (4) Business Terms, each containing the respective entities that matched the search term(s).
 
+```mermaid
+graph TD
+  %% Home
+  Home --> DomainCard
+  Home --> HomeTabPaneCards
+  Home --> HomeTabPaneTable
+  Home --> SB([SearchBar])
+
+  classDef shared fill:#7b73f0,color:white
+  class SB,DC,DI,TC shared
+```
+
 | Component | Purpose |
 | :-------- | :------ |
 | `DomainCard` | Simple cards to link to each Domain's page. |
@@ -136,9 +148,20 @@ Note that `HomeTabPaneCards` and `HomeTabPaneTable` are located in the same file
 #### 2. `DcTable`
 This component displays information on a given Table, and has a search bar for filtering Columns within that Table. Users can toggle between two options for displaying Columns: in a table or as cards.
 
+```mermaid
+graph TD
+  %% DcTable
+  DcTable --> SB([SearchBar])
+  DcTable --> ColumnCard
+  DcTable --> TermPopover
+
+  classDef shared fill:#7b73f0,color:white
+  class SB,DC,DI,TC shared
+```
+
 | Component | Purpose |
 | :-------- | :------ |
-| `ColumnCard` |  |
+| `ColumnCard` | Displays a Column's title, data type, primary/foreign key status, definition, business rules, and related Business Terms. |
 | `TermPopOver` | Displays a Business Term as a link to its dedicated page, and displays a popover when hovering over it. |
 
 ### `shared` Entities
