@@ -3,7 +3,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { BiHash } from 'react-icons/bi';
 import './TermPopover.css';
-import { BusinessTermSchema } from '../../utils/utils';
+import { BusinessTermSchema } from '../../shared/utils';
 import React from 'react';
 
 interface TermPopoverProps extends BusinessTermSchema {

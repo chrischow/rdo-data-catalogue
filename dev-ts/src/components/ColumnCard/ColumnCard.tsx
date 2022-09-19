@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import { BsKeyFill } from 'react-icons/bs';
 import { FiColumns } from 'react-icons/fi';
 import { TermPopover } from '../TermPopover/TermPopover';
-import { BusinessTermSchema, ColumnSchema } from '../../utils/utils';
+import { BusinessTermSchema, ColumnSchema } from '../../shared/utils';
 import './ColumnCard.css';
 
 interface ColumnCardProps extends ColumnSchema {

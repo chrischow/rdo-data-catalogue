@@ -4,7 +4,7 @@ import Tab from "react-bootstrap/Tab";
 import { DatasetCard } from "../DatasetCard/DatasetCard";
 import { NoResultsText } from "../NoResultsText/NoResultsText";
 import { TableCard } from "../TableCard/TableCard";
-import { ColumnSchema } from "../../utils/utils";
+import { ColumnSchema } from "../../shared/utils";
 import { Link } from "react-router-dom";
 import { BiHash } from "react-icons/bi";
 

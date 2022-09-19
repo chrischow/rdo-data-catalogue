@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
-import { config } from "../config";
-import { constructUrl, constructQueryFn, ColumnSchema } from "../utils/utils";
+import { config } from "../../config";
+import { constructUrl, constructQueryFn, ColumnSchema } from "../utils";
 
 // Get all columns
 /**

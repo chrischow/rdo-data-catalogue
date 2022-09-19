@@ -5,9 +5,9 @@ import { BiHash } from 'react-icons/bi';
 import { BsTable } from 'react-icons/bs';
 
 import './BusinessTermView.css';
-import { useTerm } from '../../hooks/useTerms';
-import { useColumnsByTerm } from '../../hooks/useColumns';
-import { ColumnSchema } from '../../utils/utils';
+import { useTerm } from '../../shared/hooks/useTerms';
+import { useColumnsByTerm } from '../../shared/hooks/useColumns';
+import { ColumnSchema } from '../../shared/utils';
 
 
 export const BusinessTermView: React.FC = () => {

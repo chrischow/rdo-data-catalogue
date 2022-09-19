@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
-import { config } from "../config";
-import { constructUrl, constructQueryFn, DatasetSchema } from "../utils/utils";
+import { config } from "../../config";
+import { constructUrl, constructQueryFn, DatasetSchema } from "../utils";
 
 // Get all datasets
 /**

@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import { FaDatabase } from 'react-icons/fa';
 import { DomainIcon } from '../DomainIcon/DomainIcon';
 import { TableCard } from '../TableCard/TableCard';
-import { DatasetSchema, TableSchema } from '../../utils/utils';
-import { useTableByDataset } from '../../hooks/useTables';
-import { useDataset } from '../../hooks/useDatasets';
+import { DatasetSchema, TableSchema } from '../../shared/utils';
+import { useTableByDataset } from '../../shared/hooks/useTables';
+import { useDataset } from '../../shared/hooks/useDatasets';
 import './DatasetView.css';
 
 export const DatasetView: React.FC = () => {

@@ -10,11 +10,11 @@ import { BiHash } from 'react-icons/bi';
 import { DomainCard } from '../DomainCard/DomainCard';
 import { SearchBar } from '../SearchBar/SearchBar';
 import { NoResultsText } from '../NoResultsText/NoResultsText';
-import { filterDatasets, filterTables, filterColumns, filterTerms, DatasetSchema, TableSchema, ColumnSchema, BusinessTermSchema } from '../../utils/utils';
-import { useDatasets } from '../../hooks/useDatasets';
-import { useTables } from '../../hooks/useTables';
-import { useColumns } from '../../hooks/useColumns';
-import { useTerms } from '../../hooks/useTerms';
+import { filterDatasets, filterTables, filterColumns, filterTerms, DatasetSchema, TableSchema, ColumnSchema, BusinessTermSchema } from '../../shared/utils';
+import { useDatasets } from '../../shared/hooks/useDatasets';
+import { useTables } from '../../shared/hooks/useTables';
+import { useColumns } from '../../shared/hooks/useColumns';
+import { useTerms } from '../../shared/hooks/useTerms';
 import './Home.css';
 import { HomeTabPaneCards, HomeTabPaneTable } from '../HomeTabPane/HomeTabPane';
 

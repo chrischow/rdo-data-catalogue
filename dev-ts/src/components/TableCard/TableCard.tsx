@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BsTable } from 'react-icons/bs';
-import { TableSchema } from '../../utils/utils';
+import { TableSchema } from '../../shared/utils';
 import './TableCard.css';
 
 interface TableCardProps extends TableSchema {

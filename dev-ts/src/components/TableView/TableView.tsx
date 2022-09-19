@@ -11,11 +11,11 @@ import { FaDatabase } from 'react-icons/fa';
 import { TermPopover } from '../TermPopover/TermPopover';
 import { ColumnCard } from '../ColumnCard/ColumnCard';
 import { SearchBar } from '../SearchBar/SearchBar';
-import { useColumnsByTable } from '../../hooks/useColumns';
-import { useTable } from '../../hooks/useTables';
-import { BusinessTermSchema, filterColumns, TableSchema } from '../../utils/utils';
+import { useColumnsByTable } from '../../shared/hooks/useColumns';
+import { useTable } from '../../shared/hooks/useTables';
+import { useTerms } from '../../shared/hooks/useTerms';
+import { BusinessTermSchema, filterColumns, TableSchema } from '../../shared/utils';
 import './TableView.css';
-import { useTerms } from '../../hooks/useTerms';
 
 export const TableView: React.FC = () => {
   // Get ID

@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container'
 import { SearchBar } from '../SearchBar/SearchBar';
 import { DatasetCard } from '../DatasetCard/DatasetCard';
 import { DomainIcon } from '../DomainIcon/DomainIcon';
-import { useTables } from '../../hooks/useTables';
-import { useDatasetByDomain } from '../../hooks/useDatasets';
-import { DatasetSchema, TableSchema, filterDatasets } from '../../utils/utils';
+import { useTables } from '../../shared/hooks/useTables';
+import { useDatasetByDomain } from '../../shared/hooks/useDatasets';
+import { DatasetSchema, TableSchema, filterDatasets } from '../../shared/utils';
 
 interface DomainViewProps {
   dataDomain: string;

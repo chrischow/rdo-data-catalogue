@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { FaDatabase } from 'react-icons/fa';
-import { DatasetSchema } from '../../utils/utils';
+import { DatasetSchema } from '../../shared/utils';
 import './DatasetCard.css';
 import React from 'react';
 

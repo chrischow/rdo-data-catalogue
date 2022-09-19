@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import { BiHash } from 'react-icons/bi';
 import { SearchBar } from "../SearchBar/SearchBar";
-import { useTerms } from "../../hooks/useTerms";
-import { BusinessTermSchema, filterTerms } from "../../utils/utils";
+import { useTerms } from "../../shared/hooks/useTerms";
+import { BusinessTermSchema, filterTerms } from "../../shared/utils";
 
 export const BusinessGlossaryView: React.FC = () => {
   // Set state

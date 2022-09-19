@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
-import { config } from "../config";
-import { constructUrl, constructQueryFn, BusinessTermSchema } from "../utils/utils";
+import { config } from "../../config";
+import { constructUrl, constructQueryFn, BusinessTermSchema } from "../utils";
 
 // Get all terms
 /**
