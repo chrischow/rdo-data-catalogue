@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FaDatabase } from 'react-icons/fa';
-import { DomainIcon } from '../shared/DomainIcon';
-import { TableCard } from '../shared/TableCard';
-import { DatasetSchema, TableSchema } from '../shared/utils';
 import { useTableByDataset } from '../shared/hooks/useTables';
 import { useDataset } from '../shared/hooks/useDatasets';
+import { DatasetSchema, TableSchema } from '../shared/utils';
+import { DomainIcon } from '../shared/DomainIcon';
+import { TableCard } from '../shared/TableCard';
 import './styles.css';
 
 export const Dataset: React.FC = () => {

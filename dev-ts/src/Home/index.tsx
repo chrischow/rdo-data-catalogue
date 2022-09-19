@@ -9,8 +9,8 @@ import { useTables } from '../shared/hooks/useTables';
 import { useColumns } from '../shared/hooks/useColumns';
 import { useTerms } from '../shared/hooks/useTerms';
 import { filterDatasets, filterTables, filterColumns, filterTerms, DatasetSchema, TableSchema, ColumnSchema, BusinessTermSchema } from '../shared/utils';
-import { DomainCard } from './DomainCard';
 import { SearchBar } from '../shared/SearchBar';
+import { DomainCard } from './DomainCard';
 import { HomeTabPaneCards, HomeTabPaneTable } from './HomeTabPane';
 import './styles.css';
 
